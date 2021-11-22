@@ -1,5 +1,5 @@
 <template>
-  <v-footer padless absolute> 底部 </v-footer>
+  <v-footer app padless absolute> 底部 </v-footer>
 </template>
 
 <script>

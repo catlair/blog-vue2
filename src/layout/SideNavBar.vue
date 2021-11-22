@@ -45,38 +45,38 @@
     <!-- 页面导航 -->
     <div class="menu-container">
       <div class="menu-item">
-        <router-link to="/"> <i class="iconfont">&#xe619;</i> 首页 </router-link>
+        <router-link to="/"> <i class="iconfont">&#xe611;</i> 首页 </router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/archives"> <i class="iconfont">&#xe619;</i> 归档 </router-link>
+        <router-link to="/archives"> <i class="iconfont">&#xe620;</i> 归档 </router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/albums"> <i class="iconfont">&#xe619;</i> 相册 </router-link>
+        <router-link to="/albums"> <i class="iconfont">&#xe607;</i> 相册 </router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/categories"> <i class="iconfont">&#xe619;</i> 分类 </router-link>
+        <router-link to="/categories"> <i class="iconfont">&#xe60e;</i> 分类 </router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/tags"> <i class="iconfont">&#xe619;</i> 标签 </router-link>
+        <router-link to="/tags"> <i class="iconfont">&#xe61d;</i> 标签 </router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/links"> <i class="iconfont">&#xe619;</i> 友链 </router-link>
+        <router-link to="/links"> <i class="iconfont">&#xe60d;</i> 友链 </router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/about"> <i class="iconfont">&#xe619;</i> 关于 </router-link>
+        <router-link to="/about"> <i class="iconfont">&#xe65d;</i> 关于 </router-link>
       </div>
       <div class="menu-item">
         <router-link to="/message"> <i class="iconfont">&#xe619;</i> 留言 </router-link>
       </div>
       <div class="menu-item" v-if="!$store.state.userInfo.author">
-        <a @click="login" href="javascript:;"><i class="iconfont">&#xe619;</i> 登录 </a>
+        <a @click="login" href="javascript:;"><i class="iconfont">&#xe617;</i> 登录 </a>
       </div>
       <template v-else>
         <div class="menu-item">
-          <router-link to="/user"> <i class="iconfont">&#xe619;</i> 个人中心 </router-link>
+          <router-link to="/user"> <i class="iconfont">&#xe617;</i> 个人中心 </router-link>
         </div>
         <div class="menu-item">
-          <a @click="logout" href="javascript:;"><i class="iconfont">&#xe619;</i> 退出</a>
+          <a @click="logout" href="javascript:;"><i class="iconfont">&#xe624;</i> 退出</a>
         </div>
       </template>
     </div>

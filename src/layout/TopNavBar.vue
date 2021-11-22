@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar :class="navClass" app hide-on-scroll>
+  <v-app-bar :class="navClass" app hide-on-scroll flat height="60">
     <!-- 电脑端导航栏 -->
     <div class="d-md-block d-none nav-pc-container">
       <div class="float-left blog-title">
@@ -71,13 +71,11 @@
             <img class="user-avatar" :src="$store.state.userInfo.avatar" height="30" width="30" />
             <ul class="menus-submenu">
               <li>
-                <router-link to="/user">
-                  <i class="iconfont icongerenzhongxin" /> 个人中心
-                </router-link>
+                <router-link to="/user"> <i class="iconfont">&#xe617;</i> 个人中心 </router-link>
               </li>
               <li>
                 <a @click="logout" href="javascript:void 0;"
-                  ><i class="iconfont icontuichu" /> 退出</a
+                  ><i class="iconfont">&#xe624;</i> 退出</a
                 >
               </li>
             </ul>

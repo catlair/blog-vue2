@@ -2,25 +2,25 @@
   <v-app>
     <TopNavBarVue />
     <SideNavBarVue />
-    <v-main>
+    <v-main style="padding-bottom: 4rem">
       <router-view />
     </v-main>
-    <!-- <FooterVue /> -->
+    <FooterVue />
   </v-app>
 </template>
 
 <script>
 import TopNavBarVue from './layout/TopNavBar.vue'
 import SideNavBarVue from './layout/SideNavBar.vue'
-// import FooterVue from './layout/Footer.vue'
+import FooterVue from './layout/Footer.vue'
 
 export default {
   name: 'App',
 
   components: {
     TopNavBarVue,
-    SideNavBarVue
-    // FooterVue,
+    SideNavBarVue,
+    FooterVue
   },
 
   data: () => ({

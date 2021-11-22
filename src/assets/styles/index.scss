@@ -15,6 +15,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a,
+img,
+button {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
 }
@@ -26,4 +32,8 @@ i {
 
 ul {
   list-style: none;
+}
+
+.separator {
+  margin: 0 6px;
 }
