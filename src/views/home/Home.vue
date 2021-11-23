@@ -1,22 +1,41 @@
 <template>
   <div class="home">
     <HomeBanner />
-    <hello-world />
+    <v-container class="main-container">
+      <v-row class="row">
+        <v-col md="9" cols="12">
+          <HomeArticleCard />
+          <v-pagination class="pagination" v-model="page" :length="pageSize"></v-pagination>
+        </v-col>
+        <HomeSide />
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld'
+import HomeSide from './HomeSide.vue'
+import HomeArticleCard from './HomeArticleCard.vue'
 import HomeBanner from './HomeBanner.vue'
 
 export default {
   name: 'Home',
-
   components: {
-    HelloWorld,
+    HomeSide,
+    HomeArticleCard,
     HomeBanner
+  },
+  data() {
+    return {
+      page: 1,
+      pageSize: 1
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pagination {
+  margin-top: 20px;
+}
+</style>

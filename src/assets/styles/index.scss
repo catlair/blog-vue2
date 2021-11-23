@@ -1,5 +1,3 @@
-@import url(./variable.scss);
-
 @font-face {
   font-family: 'iconfont';
   src: url('../fonts/iconfont.woff2?t=1637486359711') format('woff2'),
@@ -36,4 +34,65 @@ ul {
 
 .separator {
   margin: 0 6px;
+}
+
+.banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -60px;
+  background-color: #49b1f5 !important;
+  animation: header-effect 1s;
+}
+
+.main-container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin-top: -62px;
+  line-height: 1.5;
+}
+
+.page-container {
+  @include page-up-animation;
+  max-width: 970px;
+  margin: 240px 5px 20px 5px;
+  padding: 36px 14px;
+}
+
+@media (min-width: 760px) {
+  .banner {
+    height: 400px;
+  }
+}
+
+@media (max-width: 760px) {
+  .banner {
+    height: 280px;
+  }
+}
+
+@keyframes header-effect {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: translateY(0);
+  }
+}
+
+@keyframes main {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: translateY(0);
+  }
 }

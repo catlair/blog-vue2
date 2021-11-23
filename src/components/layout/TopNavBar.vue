@@ -103,7 +103,7 @@
 </template>
 
 <script>
-import { TOGGLE_SIDE_DRAWER } from '../store/type'
+import { TOGGLE_SIDE_DRAWER } from '@/store/type'
 
 export default {
   name: 'TopNavBar',

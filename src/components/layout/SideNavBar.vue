@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { SET_SIDE_DRAWER } from '../store/type'
+import { SET_SIDE_DRAWER } from '@/store/type'
 
 export default {
   name: 'SideNavBar',

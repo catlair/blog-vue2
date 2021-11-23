@@ -36,7 +36,6 @@ export default {
   align-items: center;
   background-color: antiquewhite;
   height: 100vh;
-  margin-top: -60px;
   color: #1976d2;
   font-weight: bold;
   h1 {

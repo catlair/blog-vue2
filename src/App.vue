@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import TopNavBarVue from './layout/TopNavBar.vue'
-import SideNavBarVue from './layout/SideNavBar.vue'
-import FooterVue from './layout/Footer.vue'
+import TopNavBarVue from '@/components/layout/TopNavBar.vue'
+import SideNavBarVue from '@/components/layout/SideNavBar.vue'
+import FooterVue from '@/components/layout/Footer.vue'
 
 export default {
   name: 'App',

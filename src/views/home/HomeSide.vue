@@ -29,7 +29,7 @@
           </div>
         </div>
         <!-- 书签 -->
-        <a class="bookmark-wrap" @click="bookmark">
+        <a class="bookmark-wrap" href="javascript:;" @click="bookmark">
           <v-icon color="#fff" size="18" class="mr-1">mdi-bookmark</v-icon>
           加入书签
         </a>
