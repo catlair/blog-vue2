@@ -35,6 +35,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-container {
+  margin-top: -62px;
+}
 .pagination {
   margin-top: 20px;
 }

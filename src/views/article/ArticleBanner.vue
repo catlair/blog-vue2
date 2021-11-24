@@ -91,6 +91,7 @@ export default {
 }
 @media (min-width: 760px) {
   .banner {
+    height: 400px;
     .article-info span {
       font-size: 95%;
     }
@@ -111,7 +112,7 @@ export default {
     }
   }
 }
-@media (max-width: 759px) {
+@media (max-width: 760px) {
   .banner {
     height: 360px;
     .article-info span {

@@ -7,7 +7,7 @@
           <v-avatar size="110">
             <img
               class="author-avatar"
-              :src="'https://avatars.githubusercontent.com/u/44313800?v=4'"
+              :src="'https://portrait.gitee.com/uploads/avatars/user/1713/5141565_catlair_1615099538.png'"
             />
           </v-avatar>
           <div class="name">
@@ -106,14 +106,6 @@ export default {
     padding: 1.25rem 1.5rem;
   }
   .author-wrap {
-    .author-avatar {
-      transition: all 0.5s;
-
-      &:hover {
-        transform: rotate(360deg);
-      }
-    }
-
     .name {
       font-size: 1.375rem;
     }

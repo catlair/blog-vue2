@@ -28,16 +28,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-container {
-  @include page-up-animation;
-}
-
-@media (min-width: 760px) {
-  .main-container {
-    margin: 360px auto auto;
-  }
-}
-
 @media (max-width: 760px) {
   .main-container {
     margin: 320px auto auto;
