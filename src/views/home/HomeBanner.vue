@@ -35,7 +35,7 @@ export default {
   text-align: center;
   align-items: center;
   background-color: antiquewhite;
-  height: 100vh;
+  @include vh(100);
   color: #1976d2;
   font-weight: bold;
   h1 {

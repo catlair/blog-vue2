@@ -63,7 +63,16 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior(_to, _from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    // 按下 后退/前进 按钮时，就会像浏览器的原生表现那样
+    if (savedPosition) {
+      return savedPosition
+    }
+    // 顶部
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router

@@ -2,6 +2,7 @@
   <v-navigation-drawer
     app
     width="250"
+    style="height: var(--100vh)"
     v-resize="onResize"
     v-model="drawer"
     right
