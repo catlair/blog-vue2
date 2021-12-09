@@ -3,20 +3,9 @@
     <div class="side-wrap">
       <v-card class="side-card zoom-in animated mt-5">
         <!-- 头像 -->
-        <div class="author-wrap">
-          <v-avatar size="110">
-            <img
-              class="author-avatar"
-              :src="'https://portrait.gitee.com/uploads/avatars/user/1713/5141565_catlair_1615099538.png'"
-            />
-          </v-avatar>
-          <div class="name">
-            {{ '测试用户' }}
-          </div>
-          <div class="intro">
-            {{ '瞎说 周树人' }}
-          </div>
-        </div>
+        <AuthorInfoVue
+          src="https://portrait.gitee.com/uploads/avatars/user/1713/5141565_catlair_1615099538.png"
+        />
         <!-- 文章信息 -->
         <div class="art-warp">
           <div class="art-item" v-for="i of 3" :key="i">
@@ -79,8 +68,13 @@
 </template>
 
 <script>
+import AuthorInfoVue from '@/components/AuthorInfo.vue'
+
 export default {
   name: 'HomeSide',
+  components: {
+    AuthorInfoVue
+  },
   data() {
     return {}
   },
@@ -104,15 +98,6 @@ export default {
   .side-card {
     line-height: 2;
     padding: 1.25rem 1.5rem;
-  }
-  .author-wrap {
-    .name {
-      font-size: 1.375rem;
-    }
-
-    .intro {
-      font-size: 0.875rem;
-    }
   }
 
   .art-warp {

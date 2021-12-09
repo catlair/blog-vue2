@@ -12,7 +12,6 @@
         </v-card>
       </div>
     </div>
-    <v-pagination v-model="page" :length="6"></v-pagination>
   </div>
 </template>
 
@@ -20,9 +19,7 @@
 export default {
   name: 'LinkLists',
   data() {
-    return {
-      page: 1
-    }
+    return {}
   }
 }
 </script>

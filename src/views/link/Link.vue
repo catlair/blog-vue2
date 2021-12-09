@@ -1,38 +1,38 @@
 <template>
-  <div class="page-container">
-    <BannerVue> 友情链接</BannerVue>
-    <v-card class="page-wrapper">
-      <LinkListsVue></LinkListsVue>
-      <!-- 说明 -->
-      <div class="link-title mt-4 mb-4">
-        <v-icon color="blue">mdi-dots-horizontal-circle</v-icon> 添加友链
-      </div>
-      <blockquote>
-        <div>名称：{{ 'Hello world' }}</div>
-        <div>链接：{{ 'localhost' }}</div>
-        <div>简介：{{ '随便写一下' }}</div>
-        <div>图片：{{ 'https://有个屁的头像' }}</div>
-      </blockquote>
-      <div class="mt-5 mb-5">需要交换友链的可在下方留言💖</div>
-      <blockquote class="mb-10">
-        友链信息展示需要，你的信息格式要包含：名称、介绍、链接、图片
-      </blockquote>
-    </v-card>
-  </div>
+  <Container title="友情链接">
+    <LinkListsVue></LinkListsVue>
+    <v-pagination v-model="page" :length="6"></v-pagination>
+    <!-- 说明 -->
+    <div class="link-title mt-4 mb-4">
+      <v-icon color="blue">mdi-dots-horizontal-circle</v-icon> 添加友链
+    </div>
+    <blockquote>
+      <div>名称：{{ 'Hello world' }}</div>
+      <div>链接：{{ 'localhost' }}</div>
+      <div>简介：{{ '随便写一下' }}</div>
+      <div>图片：{{ 'https://有个屁的头像' }}</div>
+    </blockquote>
+    <div class="mt-5 mb-5">需要交换友链的可在下方留言💖</div>
+    <blockquote class="mb-10">
+      友链信息展示需要，你的信息格式要包含：名称、介绍、链接、图片
+    </blockquote>
+  </Container>
 </template>
 
 <script>
-import BannerVue from '@/components/Banner.vue'
+import Container from '@/components/layout/Container.vue'
 import LinkListsVue from './LinkLists.vue'
 
 export default {
   name: 'Link',
   components: {
-    BannerVue,
+    Container,
     LinkListsVue
   },
   data() {
-    return {}
+    return {
+      page: 1
+    }
   }
 }
 </script>

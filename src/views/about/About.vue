@@ -1,27 +1,24 @@
 <template>
-  <div class="about page-container">
-    <BannerVue>This is an about page</BannerVue>
-    <v-card class="page-wrapper">
-      <!-- 博主头像 -->
-      <div class="my-wrapper">
-        <v-avatar size="110">
-          <img class="author-avatar" :src="avatar" />
-        </v-avatar>
-      </div>
-      <!-- 介绍 -->
-      <div class="about-content markdown-body">
-        {{ '没啥好说的' }}
-      </div>
-    </v-card>
-  </div>
+  <Container title="This is an about page">
+    <!-- 博主头像 -->
+    <div class="my-wrapper">
+      <AuthorInfo :src="avatar" />
+    </div>
+    <!-- 介绍 -->
+    <div class="about-content markdown-body">
+      {{ '没啥好说的' }}
+    </div>
+  </Container>
 </template>
 <script>
-import BannerVue from '@/components/Banner.vue'
+import Container from '@/components/layout/Container.vue'
+import AuthorInfo from '@/components/AuthorInfo.vue'
 
 export default {
   name: 'About',
   components: {
-    BannerVue
+    Container,
+    AuthorInfo
   },
   data() {
     return {

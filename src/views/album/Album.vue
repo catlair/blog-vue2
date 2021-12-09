@@ -1,12 +1,22 @@
 <template>
-  <div>相册</div>
+  <Container title="相册"> 施工中</Container>
 </template>
 
 <script>
+import Container from '@/components/layout/Container.vue'
+
 export default {
   name: 'Album',
+  components: { Container },
   data() {
-    return {}
+    return {
+      num: 0
+    }
+  },
+  methods: {
+    updateNumHandle() {
+      this.num++
+    }
   }
 }
 </script>

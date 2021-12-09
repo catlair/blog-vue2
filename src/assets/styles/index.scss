@@ -36,13 +36,6 @@ ul {
   margin: 0 6px;
 }
 
-.author-avatar {
-  transition: all 0.5s;
-}
-.author-avatar:hover {
-  transform: rotate(360deg);
-}
-
 .banner {
   position: absolute;
   left: 0;
@@ -59,25 +52,10 @@ ul {
   line-height: 1.5;
 }
 
-.page-container {
-  padding: 0 20px;
-}
-
-.page-wrapper {
-  @include page-up-animation;
-  max-width: 1200px;
-  line-height: 1.5;
-}
-
 @media (min-width: 760px) {
   $container-m: 360px auto auto;
   .main-container {
     margin: $container-m;
-  }
-
-  .page-wrapper {
-    margin: $container-m;
-    padding: 20px 40px;
   }
 }
 
@@ -85,11 +63,6 @@ ul {
   $container-m: 240px auto auto;
   .main-container {
     margin: $container-m;
-  }
-
-  .page-wrapper {
-    margin: $container-m;
-    padding: 20px 14px;
   }
 }
 

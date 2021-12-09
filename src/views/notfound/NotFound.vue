@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <h1>404</h1>
+  <Container title="404 Not Found">
     <p>
       <router-link to="/">Go to home</router-link>
     </p>
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from '@/components/layout/Container.vue'
 export default {
-  name: 'NotFound'
+  name: 'NotFound',
+  components: {
+    Container
+  }
 }
 </script>
 
