@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="117px" height="90px" viewBox="0 0 117 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>编组 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="109" height="82" rx="10"></rect>
+        <filter x="-6.4%" y="-6.1%" width="112.8%" height="117.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.897192029   0 0 0 0 0.897192029   0 0 0 0 0.897192029  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="35.5053613%" y1="41.9735504%" x2="32.8798965%" y2="60.1205481%" id="linearGradient-4">
+            <stop stop-color="#DBE7F2" offset="0%"></stop>
+            <stop stop-color="#EEF2F9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="82.1844536%" y1="50%" x2="7.66639473%" y2="85.5869323%" id="linearGradient-5">
+            <stop stop-color="#DBE7F2" offset="0%"></stop>
+            <stop stop-color="#EEF2F9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="v1.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的" transform="translate(-229.000000, -281.000000)">
+            <g id="编组-3" transform="translate(233.000000, 283.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="矩形备份-2">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use fill="#F2F7FA" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <path d="M29.7542546,31 C50.144452,31 55.3384615,67.367463 69.6887679,67.367463 C78.7411845,67.367463 77.7914227,50.9510808 92.1565691,50.9510808 C102.455548,50.9510808 109,83 109,83 L0,83 C0,83 8.94853642,31 29.7542546,31 Z" id="路径" fill="url(#linearGradient-4)" mask="url(#mask-2)"></path>
+                <circle id="椭圆形" fill="url(#linearGradient-5)" mask="url(#mask-2)" cx="80.5" cy="21.5" r="12.5"></circle>
+                <rect id="矩形" fill="#FFFFFF" mask="url(#mask-2)" x="-2" y="82" width="114" height="28"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

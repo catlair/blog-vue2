@@ -89,7 +89,15 @@ export default {
   }
 }
 
-@media (max-width: 719px) {
+@media (max-width: $screen-md) {
+  .list {
+    .list-item {
+      width: 48%;
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
   .list {
     .list-item {
       width: 100%;

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2954189 */
-  src: url('iconfont.woff2?t=1637487729439') format('woff2'),
-       url('iconfont.woff?t=1637487729439') format('woff'),
-       url('iconfont.ttf?t=1637487729439') format('truetype');
+  src: url('iconfont.woff2?t=1640519443706') format('woff2'),
+       url('iconfont.woff?t=1640519443706') format('woff'),
+       url('iconfont.ttf?t=1640519443706') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zhiding:before {
+  content: "\e890";
+}
+
+.icon-icon_bilibili-circle:before {
+  content: "\e600";
+}
+
+.icon-github:before {
+  content: "\eaf6";
+}
+
+.icon-gitee:before {
+  content: "\e64f";
+}
+
+.icon-tuichu:before {
+  content: "\e624";
 }
 
 .icon-tupian:before {
@@ -63,10 +83,6 @@
 
 .icon-chakan:before {
   content: "\e612";
-}
-
-.icon-print:before {
-  content: "\e613";
 }
 
 .icon-menu:before {
@@ -131,9 +147,5 @@
 
 .icon-faxian:before {
   content: "\e8af";
-}
-
-.icon-liuyan:before {
-  content: "\e638";
 }
 

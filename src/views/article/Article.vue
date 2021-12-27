@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import ArticleBanner from './ArticleBanner.vue'
-import ArticleContent from './ArticleContent.vue'
-import ArticleSide from './ArticleSide.vue'
+import ArticleBanner from './components/ArticleBanner.vue'
+import ArticleContent from './components/ArticleContent.vue'
+import ArticleSide from './components/ArticleSide.vue'
 
 export default {
   name: 'Article',
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
   .main-container {
     margin: 320px auto auto;
   }

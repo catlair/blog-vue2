@@ -13,7 +13,10 @@ import './assets/styles/index.scss'
 
 Vue.config.productionTip = false
 
-vhCheck()
+vhCheck({
+  updateOnResize: true,
+  updateOnTouch: false
+})
 
 new Vue({
   router,

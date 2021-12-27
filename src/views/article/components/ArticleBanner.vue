@@ -89,7 +89,7 @@ export default {
     font-size: 14px;
   }
 }
-@media (min-width: 760px) {
+@media (min-width: $screen-sm) {
   .banner {
     height: 400px;
     .article-info span {
@@ -112,7 +112,7 @@ export default {
     }
   }
 }
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
   .banner {
     height: 360px;
     .article-info span {

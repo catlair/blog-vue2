@@ -3,16 +3,19 @@
     <h1>Hello World!</h1>
     <p class="desc">this is a blog.</p>
     <div class="roll-btn" @click="rollDown">
-      <v-icon class="scroll-down-effects"> mdi-chevron-down </v-icon>
+      <v-icon class="scroll-down-effects"> {{ mdiChevronDown }}</v-icon>
     </div>
   </div>
 </template>
 
 <script>
+import { mdiChevronDown } from '@mdi/js'
 export default {
   name: 'HomeBanner',
   data() {
-    return {}
+    return {
+      mdiChevronDown
+    }
   },
   methods: {
     rollDown() {

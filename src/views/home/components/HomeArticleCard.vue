@@ -4,13 +4,7 @@
       <!-- 图片  -->
       <div class="art-cover">
         <router-link :to="`/articles/${i}`">
-          <v-img
-            src="https://www.static.talkxj.com/articles/771941739cbc70fbe40e10cf441e02e5.jpg"
-            lazy-src="https://picsum.photos/id/11/100/60"
-            width="100%"
-            height="100%"
-          >
-          </v-img>
+          <LazyImg src="https://s4.ax1x.com/2021/12/27/Trng1I.png"> </LazyImg>
         </router-link>
       </div>
       <!-- 详细信息 -->
@@ -21,17 +15,17 @@
         <div class="art-info">
           <!-- 是否置顶 -->
           <span v-if="i === 1">
-            <span style="color: #ff7242"> <i class="iconfont">顶</i> 置顶 </span>
+            <span style="color: #ff7242"> <i class="iconfont">&#xe890;</i> 置顶 </span>
             <span class="separator">|</span>
           </span>
           <!-- 发表时间 -->
-          <v-icon size="14">mdi-calendar-month-outline</v-icon>
-          {{ '2020-06-29' }}
+          <v-icon size="14">{{ mdiCalendarMonthOutline }}</v-icon>
+          <span> {{ '2020-06-29' }}</span>
           <span class="separator">|</span>
           <!-- 文章分类 -->
           <router-link :to="'/categories/'">
-            <v-icon size="14">mdi-inbox-full</v-icon>
-            {{ 'vue' }}
+            <v-icon size="14">{{ mdiInboxFull }}</v-icon>
+            <span style="margin-left: 2px">{{ 'vue' }}</span>
           </router-link>
           <span class="separator">|</span>
           <!-- 文章标签 -->
@@ -42,7 +36,8 @@
             v-for="tag of ['vue', 'html']"
             :key="tag"
           >
-            <v-icon size="14">mdi-tag-multiple</v-icon>{{ tag }}
+            <v-icon size="14">{{ mdiTagMultiple }}</v-icon>
+            <span style="margin-left: 2px">{{ tag }}</span>
           </router-link>
         </div>
         <div class="art-desc">
@@ -58,8 +53,19 @@
 </template>
 
 <script>
+import { mdiCalendarMonthOutline, mdiInboxFull, mdiTagMultiple } from '@mdi/js'
+import LazyImg from '@/components/images/LazyImg.vue'
+
 export default {
-  name: 'HomeArticleCard'
+  name: 'HomeArticleCard',
+  components: {
+    LazyImg
+  },
+  data: () => ({
+    mdiCalendarMonthOutline,
+    mdiInboxFull,
+    mdiTagMultiple
+  })
 }
 </script>
 
@@ -79,6 +85,10 @@ export default {
   font-size: 14px;
 }
 
+.v-icon {
+  vertical-align: text-top;
+}
+
 .art-desc {
   text-indent: 2em;
   line-height: 2;
@@ -91,7 +101,7 @@ export default {
   /** firefox */
 }
 
-@media (min-width: 760px) {
+@media (min-width: $screen-sm) {
   // 大屏图片交错显示
   .art-cover {
     overflow: hidden;
@@ -122,7 +132,7 @@ export default {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
   // 小屏图片下面显示文章信息
   .art-card {
     margin-top: 1rem;

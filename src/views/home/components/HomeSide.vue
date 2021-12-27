@@ -3,7 +3,7 @@
     <div class="side-wrap">
       <v-card class="side-card zoom-in animated mt-5">
         <!-- 头像 -->
-        <AuthorInfoVue
+        <AuthorInfo
           src="https://portrait.gitee.com/uploads/avatars/user/1713/5141565_catlair_1615099538.png"
         />
         <!-- 文章信息 -->
@@ -19,25 +19,27 @@
         </div>
         <!-- 书签 -->
         <a class="bookmark-wrap" href="javascript:;" @click="bookmark">
-          <v-icon color="#fff" size="18" class="mr-1">mdi-bookmark</v-icon>
+          <v-icon color="#fff" size="18" class="mr-1">{{ mdiBookmark }}</v-icon>
           加入书签
         </a>
         <!-- 外链 -->
         <div class="link-wrap">
           <a
             class="mr-5 iconfont"
+            v-for="link of links"
             target="_blank"
-            :href="'https://bilibili.com'"
-            v-for="i of 3"
-            :key="i"
-            >{{ '' }}</a
+            :title="link.name"
+            :href="link.url"
+            :key="link.name"
           >
+            <i class="iconfont" style="font-size: 24px" v-html="link.icon"></i>
+          </a>
         </div>
       </v-card>
       <v-card class="side-card zoom-in animated mt-5">
         <div class="side-info">
           <div>
-            <v-icon size="18">mdi-bell</v-icon>
+            <v-icon size="18">{{ mdiBell }}</v-icon>
             公告
           </div>
           <p class="bell-info">
@@ -48,7 +50,7 @@
       <v-card class="side-card zoom-in animated mt-5">
         <div class="side-info">
           <div>
-            <v-icon size="18">mdi-chart-line</v-icon>
+            <v-icon size="18">{{ mdiChartLine }}</v-icon>
             网站资讯
           </div>
           <div class="content">
@@ -68,15 +70,37 @@
 </template>
 
 <script>
-import AuthorInfoVue from '@/components/AuthorInfo.vue'
+import AuthorInfo from '@/components/user/AuthorInfo.vue'
+import { mdiBookmark, mdiBell, mdiChartLine } from '@mdi/js'
 
 export default {
   name: 'HomeSide',
   components: {
-    AuthorInfoVue
+    AuthorInfo
   },
   data() {
-    return {}
+    return {
+      mdiBookmark,
+      mdiBell,
+      mdiChartLine,
+      links: [
+        {
+          name: 'GitHub',
+          url: 'https://github.com/catlair',
+          icon: '&#xeaf6;'
+        },
+        {
+          name: 'Gitee',
+          url: 'https://gitee.com/catlair',
+          icon: '&#xe64f;'
+        },
+        {
+          name: 'bilibili',
+          url: 'https://space.bilibili.com/357123798/',
+          icon: '&#xe600;'
+        }
+      ]
+    }
   },
   methods: {
     bookmark() {
@@ -168,9 +192,9 @@ export default {
   }
 }
 
-@media (min-width: 760px) {
+@media (min-width: $screen-sm) {
 }
 
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
 }
 </style>

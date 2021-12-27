@@ -19,7 +19,7 @@ export default {
   width: 100%;
 }
 
-@media (min-width: 760px) {
+@media (min-width: $screen-sm) {
   .banner {
     height: 400px;
 
@@ -31,7 +31,7 @@ export default {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
   .banner {
     height: 280px;
 

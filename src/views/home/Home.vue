@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import HomeSide from './HomeSide.vue'
-import HomeArticleCard from './HomeArticleCard.vue'
-import HomeBanner from './HomeBanner.vue'
+import HomeSide from './components/HomeSide.vue'
+import HomeArticleCard from './components/HomeArticleCard.vue'
+import HomeBanner from './components/HomeBanner.vue'
 
 export default {
   name: 'Home',

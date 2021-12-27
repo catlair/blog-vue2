@@ -15,11 +15,12 @@
       </div>
       <div style="margin-top: 0.375rem">
         <!-- 发表时间 -->
-        <v-icon size="20">mdi-clock-outline</v-icon>
+        <v-icon size="20">{{ mdiClockOutline }}</v-icon>
         {{ '2016-01-12' }}
         <!-- 文章分类 -->
         <router-link :to="'/categories/' + article" class="float-right">
-          <v-icon>mdi-bookmark</v-icon>{{ '分类项' + article }}
+          <v-icon>{{ mdiBookMarker }}</v-icon
+          >{{ '分类项' + article }}
         </router-link>
       </div>
     </div>
@@ -35,10 +36,14 @@
 </template>
 
 <script>
+import { mdiBookMarker, mdiClockOutline } from '@mdi/js'
+
 export default {
   props: ['article'],
   data() {
     return {
+      mdiBookMarker,
+      mdiClockOutline,
       articleCover: 'https://bing.ioliu.cn/photo/ChocoHillBohol_ZH-CN9297094265?force=download'
     }
   }
@@ -46,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media (min-width: 890px) {
+@media (min-width: $screen-sm) {
   .article-item-card:hover {
     transition: all 0.3s;
     box-shadow: 0 4px 12px 12px rgba(7, 17, 27, 0.15);
@@ -67,7 +72,7 @@ export default {
     font-size: 15px;
   }
 }
-@media (max-width: 890px) {
+@media (max-width: $screen-sm) {
   .article-item-info {
     line-height: 1.7;
     padding: 15px 15px 12px 18px;

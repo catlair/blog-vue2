@@ -1,8 +1,15 @@
+// @font-face {
+//   font-family: 'iconfont';
+//   src: url('../fonts/iconfont.woff2?t=1637486359711') format('woff2'),
+//     url('../fonts/iconfont.woff?t=1637486359711') format('woff'),
+//     url('../fonts/iconfont.ttf?t=1637486359711') format('truetype');
+// }
+
 @font-face {
-  font-family: 'iconfont';
-  src: url('../fonts/iconfont.woff2?t=1637486359711') format('woff2'),
-    url('../fonts/iconfont.woff?t=1637486359711') format('woff'),
-    url('../fonts/iconfont.ttf?t=1637486359711') format('truetype');
+  font-family: 'iconfont'; /* Project id 2954189 */
+  src: url('//at.alicdn.com/t/font_2954189_g1yo0lgb559.woff2?t=1640519645674') format('woff2'),
+    url('//at.alicdn.com/t/font_2954189_g1yo0lgb559.woff?t=1640519645674') format('woff'),
+    url('//at.alicdn.com/t/font_2954189_g1yo0lgb559.ttf?t=1640519645674') format('truetype');
 }
 
 .iconfont {
@@ -52,14 +59,14 @@ ul {
   line-height: 1.5;
 }
 
-@media (min-width: 760px) {
+@media (min-width: $screen-sm) {
   $container-m: 360px auto auto;
   .main-container {
     margin: $container-m;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
   $container-m: 240px auto auto;
   .main-container {
     margin: $container-m;

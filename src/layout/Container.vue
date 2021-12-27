@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <BannerVue>{{ title }}</BannerVue>
+    <Banner>{{ title }}</Banner>
     <v-card class="page-wrapper" :style="wrapperStyle">
       <slot></slot>
     </v-card>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import BannerVue from '@/components/Banner.vue'
+import Banner from '@/layout/Banner.vue'
 
 export default {
   name: 'Container',
   components: {
-    BannerVue
+    Banner
   },
   props: {
     title: {
@@ -47,7 +47,7 @@ export default {
   line-height: 1.5;
 }
 
-@media (min-width: 760px) {
+@media (min-width: $screen-sm) {
   $container-m: 360px auto auto;
   .page-wrapper {
     margin: $container-m;
@@ -55,7 +55,7 @@ export default {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
   $container-m: 240px auto auto;
 
   .page-wrapper {

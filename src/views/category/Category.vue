@@ -1,21 +1,21 @@
 <template>
   <Container title="分类">
-    <CategoryListVue />
-    <ArticleCardVue />
+    <CategoryList />
+    <ArticleCard />
   </Container>
 </template>
 
 <script>
-import Container from '@/components/layout/Container.vue'
-import ArticleCardVue from '@/components/ArticleCard.vue'
-import CategoryListVue from './CategoryList.vue'
+import Container from '@/layout/Container.vue'
+import ArticleCard from '@/components/article/ArticleCard.vue'
+import CategoryList from './components/CategoryList.vue'
 
 export default {
   name: 'Category',
   components: {
     Container,
-    CategoryListVue,
-    ArticleCardVue
+    CategoryList,
+    ArticleCard
   },
   data() {
     return {}

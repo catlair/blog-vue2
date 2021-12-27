@@ -11,8 +11,8 @@
   </Container>
 </template>
 <script>
-import Container from '@/components/layout/Container.vue'
-import AuthorInfo from '@/components/AuthorInfo.vue'
+import Container from '@/layout/Container.vue'
+import AuthorInfo from '@/components/user/AuthorInfo.vue'
 
 export default {
   name: 'About',

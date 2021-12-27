@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Container from '@/components/layout/Container.vue'
+import Container from '@/layout/Container.vue'
 
 export default {
   name: 'Archive',

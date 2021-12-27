@@ -97,13 +97,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media (min-width: 760px) {
+@media (min-width: $screen-sm) {
   .wrap {
     padding: 40px;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: $screen-sm) {
   .wrap {
     padding: 2.25rem 0.875rem;
   }

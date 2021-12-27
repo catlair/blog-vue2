@@ -6,6 +6,41 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "9627002",
+      "name": "置顶",
+      "font_class": "zhiding",
+      "unicode": "e890",
+      "unicode_decimal": 59536
+    },
+    {
+      "icon_id": "20647584",
+      "name": "icon_bilibili-circle",
+      "font_class": "icon_bilibili-circle",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "348534",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "eaf6",
+      "unicode_decimal": 60150
+    },
+    {
+      "icon_id": "21724058",
+      "name": "gitee",
+      "font_class": "gitee",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "10199164",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
       "icon_id": "8328310",
       "name": "相册",
       "font_class": "tupian",
@@ -95,13 +130,6 @@
       "font_class": "chakan",
       "unicode": "e612",
       "unicode_decimal": 58898
-    },
-    {
-      "icon_id": "2529734",
-      "name": "打印机、print",
-      "font_class": "print",
-      "unicode": "e613",
-      "unicode_decimal": 58899
     },
     {
       "icon_id": "2529735",
@@ -214,13 +242,6 @@
       "font_class": "faxian",
       "unicode": "e8af",
       "unicode_decimal": 59567
-    },
-    {
-      "icon_id": "14792499",
-      "name": "留言",
-      "font_class": "liuyan",
-      "unicode": "e638",
-      "unicode_decimal": 58936
     }
   ]
 }

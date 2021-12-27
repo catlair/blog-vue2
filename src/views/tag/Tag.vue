@@ -1,21 +1,21 @@
 <template>
   <Container title="标签">
-    <TagListVue />
-    <ArticleCardVue :nums="4" />
+    <TagList />
+    <ArticleCard :nums="4" />
   </Container>
 </template>
 
 <script>
-import Container from '@/components/layout/Container.vue'
-import ArticleCardVue from '@/components/ArticleCard.vue'
-import TagListVue from './TagList.vue'
+import Container from '@/layout/Container.vue'
+import ArticleCard from '@/components/article/ArticleCard.vue'
+import TagList from './components/TagList.vue'
 
 export default {
   name: 'Tag',
   components: {
     Container,
-    ArticleCardVue,
-    TagListVue
+    ArticleCard,
+    TagList
   },
   data() {
     return {}

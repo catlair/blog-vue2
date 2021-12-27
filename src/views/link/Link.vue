@@ -1,10 +1,10 @@
 <template>
   <Container title="友情链接">
-    <LinkListsVue></LinkListsVue>
+    <LinkLists></LinkLists>
     <v-pagination v-model="page" :length="6"></v-pagination>
     <!-- 说明 -->
     <div class="link-title mt-4 mb-4">
-      <v-icon color="blue">mdi-dots-horizontal-circle</v-icon> 添加友链
+      <v-icon color="blue">{{ mdiChartLine }}</v-icon> 添加友链
     </div>
     <blockquote>
       <div>名称：{{ 'Hello world' }}</div>
@@ -20,17 +20,19 @@
 </template>
 
 <script>
-import Container from '@/components/layout/Container.vue'
-import LinkListsVue from './LinkLists.vue'
+import Container from '@/layout/Container.vue'
+import LinkLists from './components/LinkLists.vue'
+import { mdiChartLine } from '@mdi/js'
 
 export default {
   name: 'Link',
   components: {
     Container,
-    LinkListsVue
+    LinkLists
   },
   data() {
     return {
+      mdiChartLine,
       page: 1
     }
   }
