@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "christian-kohler.path-intellisense",
+    "coenraads.bracket-pair-colorizer-2",
+    "mikestead.dotenv",
+    "octref.vetur"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src",
+    "#": "${workspaceRoot}/src/types"
+  },
+  "js/ts.implicitProjectConfig.checkJs": true
+}

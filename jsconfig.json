@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "#/*": ["src/types/*"],
+      "node_modules/*": ["node_modules/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
