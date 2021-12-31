@@ -30,8 +30,8 @@ const transform = {
     const { code, result, msg } = data
 
     // 这里逻辑可以根据项目进行修改
-    const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS
-    if (hasSuccess) {
+    const hasSuccess = data && Reflect.has(data, 'code')
+    if (hasSuccess && (code !== ResultEnum.ERROR || code !== ResultEnum.UNKNOWN_ERROR)) {
       return result
     }
 

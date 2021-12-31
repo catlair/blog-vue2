@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { goToPosition } from '@/utils'
 import Home from '../views/home/Home.vue'
 
 Vue.use(VueRouter)
@@ -69,14 +70,17 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior(_to, _from, savedPosition) {
-    // return 期望滚动到哪个的位置
-    // 按下 后退/前进 按钮时，就会像浏览器的原生表现那样
-    if (savedPosition) {
-      return savedPosition
+  scrollBehavior: (to, _from, savedPosition) => {
+    let scrollTo = 0
+
+    if (to.hash) {
+      scrollTo = to.hash
+    } else if (savedPosition) {
+      // 按下 前进/后退 按钮时，记录的位置
+      scrollTo = savedPosition.y
     }
-    // 顶部
-    return { x: 0, y: 0 }
+
+    return goToPosition(scrollTo)
   }
 })
 

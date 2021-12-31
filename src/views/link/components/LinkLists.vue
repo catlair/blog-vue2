@@ -1,23 +1,26 @@
 <template>
-  <div>
-    <div class="list">
-      <div class="list-item" v-for="item of 9" :key="item">
-        <div class="front">
-          <v-img height="140px" lazy-src="" src="https://picsum.photos/id/11/500/300"></v-img>
-        </div>
-        <v-card class="back">
-          <h4 class="title">{{ '风丶宇的个人博客' }}</h4>
-          <p class="desc">{{ '往事不随风' }}</p>
-          <a href="https://www.talkxj.com/" target="_blank" class="btn"> 直达</a>
-        </v-card>
-      </div>
+  <div class="list">
+    <div class="list-item" v-for="item of 9" :key="item">
+      <v-card class="front">
+        <SkeletonImg height="140px" src="https://picsum.photos/id/11/500/300" />
+      </v-card>
+      <v-card class="back">
+        <h4 class="title">{{ '风丶宇的个人博客' }}</h4>
+        <p class="desc">{{ '往事不随风' }}</p>
+        <a href="https://www.talkxj.com/" target="_blank" class="btn">直达</a>
+      </v-card>
     </div>
   </div>
 </template>
 
 <script>
+import SkeletonImg from '@/components/images/SkeletonImg'
+
 export default {
   name: 'LinkLists',
+  components: {
+    SkeletonImg
+  },
   data() {
     return {}
   }

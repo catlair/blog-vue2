@@ -3,8 +3,19 @@ import Vuetify from 'vuetify/lib/framework'
 
 Vue.use(Vuetify)
 
-export default new Vuetify({
+const opts = {
   icons: {
     iconfont: 'mdiSvg'
+  },
+  theme: {
+    dark: false,
+    themes: {
+      light: {
+        anchor: '#4c4948'
+      },
+      dark: {}
+    }
   }
-})
+}
+
+export default new Vuetify(opts)

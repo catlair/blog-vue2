@@ -1,7 +1,10 @@
 <template>
   <Container title="友情链接">
-    <LinkLists></LinkLists>
-    <v-pagination v-model="page" :length="6"></v-pagination>
+    <LinkSkeleton v-if="loading"></LinkSkeleton>
+    <template v-else>
+      <LinkLists></LinkLists>
+      <v-pagination v-model="page" :length="6"></v-pagination>
+    </template>
     <!-- 说明 -->
     <div class="link-title mt-4 mb-4">
       <v-icon color="blue">{{ mdiChartLine }}</v-icon> 添加友链
@@ -22,18 +25,21 @@
 <script>
 import Container from '@/layout/Container.vue'
 import LinkLists from './components/LinkLists.vue'
+import LinkSkeleton from './components/LinkSkeleton.vue'
 import { mdiChartLine } from '@mdi/js'
 
 export default {
   name: 'Link',
   components: {
     Container,
-    LinkLists
+    LinkLists,
+    LinkSkeleton
   },
   data() {
     return {
       mdiChartLine,
-      page: 1
+      page: 1,
+      loading: false
     }
   }
 }

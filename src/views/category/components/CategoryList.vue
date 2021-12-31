@@ -1,18 +1,46 @@
 <template>
-  <ul class="category-wrapper">
-    <li class="category-item" v-for="i of 13" :key="i">
-      <v-card>
-        <router-link :to="`?id=` + i">
-          <span>分类项{{ i }}</span>
-          <span class="post-num">{{ i }}</span>
-        </router-link>
-      </v-card>
-    </li>
+  <ul :class="loading ? '' : 'category-wrapper'">
+    <SheetSkeleton v-if="loading" class="list-item" type="list-item-two-line" />
+    <template v-else>
+      <li class="category-item" v-for="item of categories" :key="item._id">
+        <v-card>
+          <router-link :to="`?name=` + item.name">
+            <span>{{ item.name }}</span>
+            <span class="post-num" :style="{ backgroundColor: item.color || '#fff' }">
+              {{ item.num }}
+            </span>
+          </router-link>
+        </v-card>
+      </li>
+    </template>
   </ul>
 </template>
 
 <script>
-export default {}
+import SheetSkeleton from '@/components/skeleton/SheetSkeleton.vue'
+import { getCategories } from '@/api/category'
+
+export default {
+  name: 'CategoryList',
+  components: {
+    SheetSkeleton
+  },
+  data() {
+    return {
+      loading: false,
+      categories: []
+    }
+  },
+  created() {
+    this.loading = true
+    getCategories().then((res) => {
+      if (res) {
+        this.categories = res
+        this.loading = false
+      }
+    })
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -68,7 +68,7 @@
             <i class="iconfont">&#xe617;</i> 登录
           </a>
           <template v-else>
-            <img class="user-avatar" :src="$store.state.userInfo.avatar" height="30" width="30" />
+            <v-img class="user-avatar" :src="$store.state.userInfo.avatar" height="30" width="30" />
             <ul class="menus-submenu">
               <li>
                 <router-link to="/user"> <i class="iconfont">&#xe617;</i> 个人中心 </router-link>

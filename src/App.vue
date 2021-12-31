@@ -25,6 +25,10 @@ export default {
 
   data: () => ({
     //
-  })
+  }),
+
+  created() {
+    window.app = this
+  }
 }
 </script>

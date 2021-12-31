@@ -3,7 +3,7 @@
     <div class="article-item-cover">
       <router-link :to="'/articles/' + article">
         <!-- 缩略图 -->
-        <v-img class="on-hover" width="100%" height="100%" :src="articleCover" />
+        <SkeletonImg class="on-hover" width="100%" height="100%" :src="articleCover" />
       </router-link>
     </div>
     <div class="article-item-info">
@@ -37,8 +37,12 @@
 
 <script>
 import { mdiBookMarker, mdiClockOutline } from '@mdi/js'
+import SkeletonImg from '@/components/images/SkeletonImg.vue'
 
 export default {
+  components: {
+    SkeletonImg
+  },
   props: ['article'],
   data() {
     return {

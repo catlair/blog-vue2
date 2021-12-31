@@ -26,6 +26,7 @@ export default {
 .article-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 @media (max-width: $screen-sm) {

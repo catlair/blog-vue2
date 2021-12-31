@@ -9,7 +9,7 @@ import './plugins/element.js'
 import { vhCheck } from './plugins/vh-check'
 
 import 'element-ui/lib/theme-chalk/index.css'
-import './assets/styles/index.scss'
+import './styles/index.scss'
 
 Vue.config.productionTip = false
 

@@ -1,15 +1,51 @@
 <template>
-  <ul class="tag-wrapper">
-    <li class="tag-item" v-for="i of 13" :key="i">
-      <v-card>
-        <router-link :to="`?id=` + i"> 分类项{{ i }} </router-link>
-      </v-card>
-    </li>
+  <ul :class="loading ? '' : 'tag-wrapper'">
+    <SheetSkeleton v-if="loading" class="list-item" type="list-item-two-line" />
+    <template v-else>
+      <li class="tag-item" v-for="tag of tags" :key="tag._id">
+        <v-card>
+          <router-link :to="`?name=` + tag.name" :class="getRandomColorCls($vuetify.theme.dark)">
+            {{ tag.name }}
+          </router-link>
+        </v-card>
+      </li>
+    </template>
   </ul>
 </template>
 
 <script>
-export default {}
+import SheetSkeleton from '@/components/skeleton/SheetSkeleton.vue'
+import { getTags } from '@/api/tag'
+import { getRandomColorCls } from '@/utils/css'
+
+export default {
+  components: {
+    SheetSkeleton
+  },
+  data() {
+    return {
+      loading: false,
+      tags: []
+    }
+  },
+  beforeCreate() {
+    // beforeCreate 还没有初始化 data，所以无法获取 data 数据
+    // 但是居然可以设置
+    this.loading = true
+    getTags().then((res) => {
+      if (res) {
+        this.tags = res
+        this.loading = false
+      }
+    })
+  },
+  methods: {
+    getRandomColorCls() {
+      // 使用暗色是因为在亮色的太亮，不能看清
+      return getRandomColorCls(true)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -23,7 +59,6 @@ export default {}
     a {
       vertical-align: middle;
       padding: 4px 8px;
-      background-color: rgb(248, 178, 106);
       color: #fff;
       display: inline-block;
       cursor: pointer;

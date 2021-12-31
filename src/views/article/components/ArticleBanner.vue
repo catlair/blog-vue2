@@ -2,24 +2,21 @@
   <div class="banner" :style="''">
     <div class="article-info-container">
       <!-- 文章标题 -->
-      <div class="article-title">{{ '文章标题' + $route.params.id }}</div>
+      <div class="article-title">{{ article.title }}</div>
       <div class="article-info">
         <div class="first-line">
           <!-- 发表时间 -->
           <span>
             <i class="iconfont">&#xe609;</i>
-            发表于 {{ '2020-06-29' }}
+            发表于 {{ formatTime(article.createdAt) }}
           </span>
           <span class="separator">|</span>
           <!-- 发表时间 -->
           <span>
             <i class="iconfont">&#xe609;</i>
             更新于
-            <template v-if="0">
-              {{ '2020-06-29' }}
-            </template>
-            <template v-else>
-              {{ '2020-06-29' }}
+            <template>
+              {{ formatTime(article.updatedAt) }}
             </template>
           </span>
           <span class="separator">|</span>
@@ -27,7 +24,7 @@
           <span class="article-category">
             <i class="iconfont">&#xe609;</i>
             <router-link :to="'/categories/'">
-              {{ 'vue' }}
+              {{ article.category }}
             </router-link>
           </span>
         </div>
@@ -62,8 +59,19 @@
 </template>
 
 <script>
+import { formatTime } from '@/utils'
+
 export default {
-  name: 'ArticleBanner'
+  name: 'ArticleBanner',
+  props: {
+    article: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  methods: {
+    formatTime
+  }
 }
 </script>
 
