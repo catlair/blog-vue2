@@ -59,7 +59,7 @@ export class VAxios {
     }
 
     const {
-      requsetInterceptors,
+      requestInterceptors,
       requestInterceptorsCatch,
       responseInterceptors,
       responseInterceptorsCatch
@@ -79,8 +79,8 @@ export class VAxios {
 
       !ignoreCancel && axiosCanceler.addPending(config)
 
-      if (requsetInterceptors && isFunction(responseInterceptors)) {
-        config = requsetInterceptors(config, this.options)
+      if (requestInterceptors && isFunction(responseInterceptors)) {
+        config = requestInterceptors(config, this.options)
       }
 
       return config
@@ -208,7 +208,7 @@ export class VAxios {
               const ret = transformRequestHook(res, opt)
               resolve(ret)
             } catch (error) {
-              reject(error || new Error('request error!'))
+              reject(error || new Error('请求数据转换失败'))
             }
             return
           }

@@ -22,5 +22,5 @@ export function formatTime(data, format = 'YYYY-MM-DD') {
  * 跳转到位置
  */
 export function goToPosition(position = 0, options = {}) {
-  goTo(position, options)
+  return goTo(position, options)
 }

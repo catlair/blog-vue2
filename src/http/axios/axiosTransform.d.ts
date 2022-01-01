@@ -21,7 +21,7 @@ export declare abstract class AxiosTransform {
   /**
    * 请求之前拦截
    */
-  requsetInterceptors?: (
+  requestInterceptors?: (
     config: AxiosRequestConfig,
     option: CreateAxiosOptions
   ) => AxiosRequestConfig

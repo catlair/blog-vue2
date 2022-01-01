@@ -1,6 +1,7 @@
 import { merge, isString } from 'lodash-es'
 import { ContentTypeEnum, RequestEnum, ResultEnum } from '@/enums/httpEnum'
 import { VAxios } from './Axios'
+import { Message, MessageBox } from 'element-ui'
 
 /**
  * 数据处理，方便区分多种处理方式
@@ -29,8 +30,8 @@ const transform = {
     //  这里 code，result，message为 后台统一的字段
     const { code, result, msg } = data
 
-    // 这里逻辑可以根据项目进行修改
-    const hasSuccess = data && Reflect.has(data, 'code')
+    // 返回的数据如果不是预期，将不存在 result
+    const hasSuccess = Reflect.has(data, 'result') && Reflect.has(data, 'code')
     if (hasSuccess && (code !== ResultEnum.ERROR || code !== ResultEnum.UNKNOWN_ERROR)) {
       return result
     }
@@ -46,17 +47,18 @@ const transform = {
     // errorMessageMode=‘modal’的时候会显示modal错误弹窗，而不是消息提示，用于一些比较重要的错误
     // errorMessageMode='none' 一般是调用时明确表示不希望自动弹出错误提示
     if (options.errorMessageMode === 'modal') {
-      // Modal.error({
-      //   title: '错误提示',
-      //   content: timeoutMsg
-      // })
+      MessageBox.alert(timeoutMsg, '错误提示', {
+        confirmButtonText: '确定',
+        type: 'error'
+      })
       console.error(timeoutMsg)
-    } else if (options.errorMessageMode === 'message') {
-      // message.error(timeoutMsg || '请求出错，请稍候重试')
-      console.error(timeoutMsg)
+    } else if (options.errorMessageMode === 'none') {
+      // 不做任何处理
+      console.warn(timeoutMsg)
     }
 
-    throw new Error(timeoutMsg || '请求出错，请稍候重试')
+    Message.error(timeoutMsg)
+    console.error(timeoutMsg || '请求出错，请稍候重试')
   },
 
   // 请求之前处理config
@@ -95,7 +97,7 @@ const transform = {
   /**
    * 请求拦截器处理
    */
-  requsetInterceptors: (config, options) => {
+  requestInterceptors: (config, options) => {
     // const token = useUserStore().token
     const token = 'token'
 
