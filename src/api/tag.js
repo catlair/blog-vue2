@@ -10,3 +10,13 @@ export function getTags() {
     url: ApiUrl
   })
 }
+
+/**
+ * 通过标签名获取文章
+ * @param {string} tagName 标签名
+ */
+export function getArticlesByTagName(tagName) {
+  return defHttp.get({
+    url: `${ApiUrl}/name/${tagName}`
+  })
+}

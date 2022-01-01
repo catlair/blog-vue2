@@ -2,9 +2,9 @@
   <div class="home">
     <HomeBanner />
     <v-container class="main-container">
-      <v-row class="row">
+      <v-row>
         <v-col md="9" cols="12">
-          <HomeArticleCard :article="article" />
+          <HomeArticleCard :articles="article.list" />
           <v-pagination
             class="pagination"
             v-model="article.curPage"
@@ -53,13 +53,19 @@ export default {
         pn: page,
         ps: this.pageSize
       }).then((res = {}) => {
-        if (res.list && res.list.length) {
+        if (!res.list || res.list.length === 0) {
+          return
+        }
+        if (isScroll) {
+          goToPosition(document.documentElement.clientHeight || window.innerHeight || 0).then(
+            () => {
+              // 首页进行了懒加载
+              // 确保滚动到指定位置后再加载数据
+              this.article = res
+            }
+          )
+        } else {
           this.article = res
-
-          isScroll &&
-            this.$nextTick(() => {
-              goToPosition(document.documentElement.clientHeight || window.innerHeight || 0)
-            })
         }
       })
     }

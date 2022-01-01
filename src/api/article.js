@@ -21,7 +21,12 @@ export function createArticleApi(data, mode) {
  * @description: 获取文章列表
  */
 export function getAllArticleApi(params) {
-  return defHttp.get({ url: Api.URL, params })
+  return defHttp.get(
+    { url: Api.URL, params },
+    {
+      errorMessageMode: 'message'
+    }
+  )
 }
 
 /**

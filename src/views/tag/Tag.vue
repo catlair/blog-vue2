@@ -1,7 +1,7 @@
 <template>
   <Container title="标签">
-    <TagList />
-    <TagContent />
+    <TagList @update:loaded="isLoadedList = $event" />
+    <TagContent :isLoadedList="isLoadedList" />
   </Container>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     Container,
     TagList,
     TagContent
+  },
+  data() {
+    return {
+      isLoadedList: false
+    }
   }
 }
 </script>
@@ -24,10 +29,5 @@ export default {
 li {
   cursor: pointer;
   display: inline-block;
-}
-
-.v-application ul {
-  padding-left: 0;
-  padding-right: 0;
 }
 </style>

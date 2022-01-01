@@ -1,6 +1,6 @@
 <template>
   <div class="article-wrapper">
-    <SheetSkeleton class="article-item" v-for="i of 3" :key="i" />
+    <SheetSkeleton class="article-item" v-for="i of 6" :key="i" />
   </div>
 </template>
 

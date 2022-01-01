@@ -1,7 +1,7 @@
 <template>
   <Container title="分类">
-    <CategoryList />
-    <CategoryContent />
+    <CategoryList @update:loaded="isLoadedList = $event" />
+    <CategoryContent :isLoadedList="isLoadedList" />
   </Container>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     Container,
     CategoryList,
     CategoryContent
+  },
+  data() {
+    return {
+      isLoadedList: false
+    }
   }
 }
 </script>
@@ -24,10 +29,5 @@ export default {
 li {
   cursor: pointer;
   display: inline-block;
-}
-
-.v-application ul {
-  padding-left: 0;
-  padding-right: 0;
 }
 </style>

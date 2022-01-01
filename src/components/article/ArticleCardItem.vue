@@ -1,7 +1,7 @@
 <template>
   <v-card class="animated zoomIn article-item-card">
     <div class="article-item-cover">
-      <router-link :to="'/articles/' + article">
+      <router-link :to="'/articles/' + article._id">
         <!-- 缩略图 -->
         <SkeletonImg class="on-hover" width="100%" height="100%" :src="articleCover" />
       </router-link>
@@ -9,18 +9,18 @@
     <div class="article-item-info">
       <!-- 文章标题 -->
       <div>
-        <router-link :to="'/articles/' + article">
-          {{ '文章标题' + article }}
+        <router-link :to="'/articles/' + article._id">
+          {{ article.title }}
         </router-link>
       </div>
       <div style="margin-top: 0.375rem">
         <!-- 发表时间 -->
         <v-icon size="20">{{ mdiClockOutline }}</v-icon>
-        {{ '2016-01-12' }}
+        {{ formatTime(article.createdAt) }}
         <!-- 文章分类 -->
-        <router-link :to="'/categories/' + article" class="float-right">
-          <v-icon>{{ mdiBookMarker }}</v-icon
-          >{{ '分类项' + article }}
+        <router-link :to="'/categories?name=' + article.category" class="float-right">
+          <v-icon>{{ mdiBookMarker }}</v-icon>
+          {{ article.category }}
         </router-link>
       </div>
     </div>
@@ -28,16 +28,17 @@
     <v-divider></v-divider>
     <!-- 文章标签 -->
     <div class="tag-wrapper">
-      <router-link :to="'/tags/' + article" class="tag-btn" v-for="tag of 2" :key="tag">
-        {{ '标签' + tag }}
+      <router-link :to="'/tags?name=' + tag" class="tag-btn" v-for="tag of article.tags" :key="tag">
+        {{ tag }}
       </router-link>
     </div>
   </v-card>
 </template>
 
 <script>
-import { mdiBookMarker, mdiClockOutline } from '@mdi/js'
 import SkeletonImg from '@/components/images/SkeletonImg.vue'
+import { mdiBookMarker, mdiClockOutline } from '@mdi/js'
+import { formatTime } from '@/utils'
 
 export default {
   components: {
@@ -50,6 +51,9 @@ export default {
       mdiClockOutline,
       articleCover: 'https://bing.ioliu.cn/photo/ChocoHillBohol_ZH-CN9297094265?force=download'
     }
+  },
+  methods: {
+    formatTime
   }
 }
 </script>

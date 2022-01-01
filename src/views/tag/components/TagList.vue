@@ -24,18 +24,21 @@ export default {
   },
   data() {
     return {
-      loading: false,
+      loading: true,
       tags: []
     }
   },
   beforeCreate() {
     // beforeCreate 还没有初始化 data，所以无法获取 data 数据
-    // 但是居然可以设置
+    // 但是居然可以设置 不过 loading 默认应该设置为 true。以后还是在 created 请求吧
     this.loading = true
     getTags().then((res) => {
       if (res) {
         this.tags = res
+        const name = res[0].name
+        this.$route.query.name === name ? void 0 : this.$router.replace({ query: { name } })
         this.loading = false
+        this.$emit('update:loaded', true)
       }
     })
   },

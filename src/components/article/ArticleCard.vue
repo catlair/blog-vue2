@@ -1,9 +1,9 @@
 <template>
-  <ul class="article-wrapper">
-    <li class="article-item" v-for="i of nums || 6" :key="i">
-      <!-- 文章 -->
-      <ArticleCardItem :article="i" />
-    </li>
+  <ul class="article-wrapper flex-between">
+    <!-- 文章 -->
+    <v-lazy class="article-item" tag="li" v-for="item of dataSource" :key="item._id">
+      <ArticleCardItem :article="item" />
+    </v-lazy>
   </ul>
 </template>
 
@@ -15,20 +15,16 @@ export default {
   components: {
     ArticleCardItem
   },
-  props: ['nums'],
-  data() {
-    return {}
+  props: {
+    dataSource: {
+      type: Array,
+      default: () => []
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.article-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 @media (max-width: $screen-sm) {
   .article-wrapper {
     padding: 0 12px;
@@ -68,6 +64,11 @@ export default {
     &:nth-child(3n + 1) {
       margin-left: 0;
     }
+  }
+
+  .flex-between::after {
+    width: 32%;
+    margin: 16px 1% 16px 0;
   }
 }
 </style>

@@ -2,16 +2,27 @@
   <ul :class="loading ? '' : 'category-wrapper'">
     <SheetSkeleton v-if="loading" class="list-item" type="list-item-two-line" />
     <template v-else>
-      <li class="category-item" v-for="item of categories" :key="item._id">
-        <v-card>
-          <router-link :to="`?name=` + item.name">
-            <span>{{ item.name }}</span>
-            <span class="post-num" :style="{ backgroundColor: item.color || '#fff' }">
-              {{ item.num }}
-            </span>
-          </router-link>
-        </v-card>
-      </li>
+      <router-link
+        v-for="item of categories"
+        :key="item._id"
+        :to="`?name=` + item.name"
+        v-slot="{ href, route, navigate, isActive, isExactActive }"
+        custom
+      >
+        <li
+          class="category-item"
+          :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']"
+        >
+          <v-card>
+            <a :href="href" @click="navigate">
+              <span>{{ item.name }}</span>
+              <span class="post-num" :style="{ backgroundColor: item.color || '#fff' }">
+                {{ item.num }}
+              </span>
+            </a>
+          </v-card>
+        </li>
+      </router-link>
     </template>
   </ul>
 </template>
@@ -27,17 +38,21 @@ export default {
   },
   data() {
     return {
-      loading: false,
+      loading: true,
       categories: []
     }
   },
   created() {
     this.loading = true
     getCategories().then((res) => {
-      if (res) {
-        this.categories = res
-        this.loading = false
+      if (!res) {
+        return
       }
+      this.categories = res
+      const name = res[0].name
+      this.$route.query.name === name ? void 0 : this.$router.replace({ query: { name } })
+      this.loading = false
+      this.$emit('update:loaded', true)
     })
   }
 }

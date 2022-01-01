@@ -6,7 +6,7 @@ export interface CategoryModel {
   num: number
 }
 
-export interface UpdataModel {
+export interface UpdateModel {
   name: string
   color: string
 }

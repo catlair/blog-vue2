@@ -1,5 +1,5 @@
 <template>
-  <v-img :src="src" :width="width" :height="height">
+  <v-img :src="src" lazy-src="" :width="width" :height="height">
     <template #placeholder>
       <SheetSkeleton />
     </template>

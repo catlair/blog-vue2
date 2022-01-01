@@ -1,16 +1,16 @@
 <template>
-  <div class="list">
-    <div class="list-item" v-for="item of 9" :key="item">
+  <ul class="list flex-between">
+    <li class="list-item" v-for="item of 9" :key="item">
       <v-card class="front">
         <SkeletonImg height="140px" src="https://picsum.photos/id/11/500/300" />
       </v-card>
-      <v-card class="back">
+      <v-card class="back list-text">
         <h4 class="title">{{ '风丶宇的个人博客' }}</h4>
         <p class="desc">{{ '往事不随风' }}</p>
         <a href="https://www.talkxj.com/" target="_blank" class="btn">直达</a>
       </v-card>
-    </div>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -28,10 +28,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.flex-between::after {
+  width: 31%;
+}
 .list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  padding-left: 0;
 
   .list-item {
     display: flex;
@@ -54,6 +55,9 @@ export default {
       transform: rotateY(0deg);
     }
     .back {
+      transform: rotateY(180deg);
+    }
+    .list-text {
       padding: 1rem;
       .title {
         margin: 0;
@@ -80,7 +84,6 @@ export default {
         text-decoration: none;
         cursor: pointer;
       }
-      transform: rotateY(180deg);
     }
 
     &:hover .front {
