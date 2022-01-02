@@ -1,6 +1,6 @@
-## 过程中遇到的一些问题
+## 原生
 
-### 1.设置导航时某些地方点击报错
+### 设置导航时某些地方点击报错
 
 ```
  Uncaught TypeError: Cannot read properties of null (reading 'match')
@@ -10,41 +10,24 @@
 
 解决办法是：添加上 `href` 例如：`href="javascript:void 0;"`
 
-```json
+## vuetify
+
+### v-lazy 触发一个却加载全部
+
+需要给每个 item 高度，如果没有高度就是同时触发的
+
+## vue
+
+### beforeRouteEnter 等组件路由守卫没有效果
+
+我管它叫 `路由组件守卫钩子`，事实上只有路由中定义的组件才能使用
+
+下面例子中的 User 组件
+
+```js
 {
-  "name": "@vuepress/markdown",
-  "version": "1.8.2",
-  "description": "markdown for vuepress",
-  "keywords": ["documentation", "generator", "markdown", "vue", "vuepress"],
-  "homepage": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/markdown#readme",
-  "bugs": {
-    "url": "https://github.com/vuejs/vuepress/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vuejs/vuepress.git",
-    "directory": "packages/@vuepress/markdown"
-  },
-  "license": "MIT",
-  "author": "Evan You",
-  "main": "index.js",
-  "dependencies": {
-    "@vuepress/shared-utils": "1.8.2",
-    "markdown-it": "^8.4.1",
-    "markdown-it-anchor": "^5.0.2",
-    "markdown-it-chain": "^1.3.0",
-    "markdown-it-emoji": "^1.4.0",
-    "markdown-it-table-of-contents": "^0.4.0",
-    "prismjs": "^1.13.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "maintainers": [
-    {
-      "name": "ULIVZ",
-      "email": "chl814@foxmail.com"
-    }
-  ]
+    path: '/user',
+    name: 'User',
+    component: () => import(/* webpackChunkName: "user" */ '@/views/user/User.vue')
 }
 ```

@@ -1,29 +1,38 @@
-# blog-vue2
+## 简介
 
-## Project setup
+一个基于 `vue2`,`@vue/cli`,`vuetify`的简易个人博客。
 
-```
-yarn install
-```
+## 特性
 
-### Compiles and hot-reloads for development
+- 较旧的技术
+- 勉强的屏幕适配
+- 看不清的黑夜模式
+- 毫无特色还是借鉴的博客风格
 
-```
-yarn serve
-```
+可以说毫无特性了。
 
-### Compiles and minifies for production
+## 安装
 
-```
-yarn build
-```
+- 获取项目源码
+- 安装依赖
+  ```bash
+  yarn install
+  ```
+- 运行
+  ```bash
+    yarn dev
+  ```
+- 打包
+  ```bash
+    yarn build
+  ```
 
-### Lints and fixes files
+## 技术栈
 
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [`Vue2`](https://cn.vuejs.org/)
+- [Vue2 的全家桶](https://cn.vuejs.org/)
+- [`Vuetify`: Material 样式的 Vue UI 组件库](https://vuetifyjs.com/zh-Hans/)
+- [`Element`: Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库](https://element.eleme.cn/#/zh-CN)
+- [`Axios`: 基于 Promise 的浏览器和 Node.js 的简单 HTTP 客户端。](https://axios-http.com/)
+- [`markdown-it`: markdown 解析器](https://github.com/markdown-it/markdown-it)
+- 等等
