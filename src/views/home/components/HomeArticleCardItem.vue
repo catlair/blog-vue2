@@ -3,7 +3,7 @@
     <!-- 图片  -->
     <div class="art-cover">
       <router-link :to="`/articles/${article._id}`">
-        <LazyImg src="https://s4.ax1x.com/2021/12/27/Trng1I.png"> </LazyImg>
+        <LazyImg src="https://s4.ax1x.com/2021/12/27/Trng1I.png" />
       </router-link>
     </div>
     <!-- 详细信息 -->
@@ -86,6 +86,7 @@ export default {
     color: #858585;
     line-height: 2;
     margin: 0.375rem 0;
+
     a {
       font-size: 95%;
       color: #858585 !important;

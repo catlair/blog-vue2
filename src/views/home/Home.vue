@@ -11,7 +11,7 @@
             :total-visible="7"
             :length="article.totalPage"
             @input="getArticleList"
-          ></v-pagination>
+          />
         </v-col>
         <HomeSide />
       </v-row>
@@ -77,6 +77,7 @@ export default {
 .main-container {
   margin-top: -62px;
 }
+
 .pagination {
   margin-top: 20px;
 }

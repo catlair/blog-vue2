@@ -38,6 +38,7 @@ export default {
 .author-wrap {
   line-height: 2;
   padding: 1.25rem 1.5rem;
+
   .avatar:hover {
     // 来自掘金的头像动画
     transform: rotate(666turn);

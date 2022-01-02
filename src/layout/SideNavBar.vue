@@ -2,7 +2,7 @@
   <v-navigation-drawer
     app
     width="250"
-    style="height: var(--100vh)"
+    style="height: var(--vh-full)"
     v-resize="onResize"
     v-model="drawer"
     right
@@ -138,6 +138,7 @@ export default {
     margin-bottom: 0.5rem;
   }
 }
+
 .blog-info-wrapper {
   display: flex;
   padding: 10px;
@@ -145,11 +146,13 @@ export default {
 
   .blog-info-data {
     flex: 1;
+
     a {
       div:first-child {
         font-size: 0.875rem;
         margin: 6px 0;
       }
+
       div:last-child {
         font-size: 1.125rem;
       }
@@ -166,6 +169,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   .menu-item {
     width: 100%;
     margin: 0 0 1rem;

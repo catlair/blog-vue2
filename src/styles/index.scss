@@ -1,8 +1,8 @@
 // @font-face {
 //   font-family: 'iconfont';
-//   src: url('../fonts/iconfont.woff2?t=1637486359711') format('woff2'),
-//     url('../fonts/iconfont.woff?t=1637486359711') format('woff'),
-//     url('../fonts/iconfont.ttf?t=1637486359711') format('truetype');
+//   src: url('~@/assets/fonts/iconfont.woff2') format('woff2'),
+//     url('~@/assets/fonts/iconfont.woff') format('woff'),
+//     url('~@/assets/fonts/iconfont.ttf') format('truetype');
 // }
 
 @font-face {
@@ -13,7 +13,7 @@
 }
 
 .iconfont {
-  font-family: 'iconfont', serif !important;
+  font-family: 'iconfont', 'serif' !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -36,6 +36,7 @@ i {
 }
 
 ul {
+  padding-left: 0;
   list-style: none;
 }
 
@@ -49,15 +50,16 @@ ul {
 
 .banner {
   position: absolute;
-  left: 0;
-  right: 0;
   top: -60px;
+  right: 0;
+  left: 0;
   background-color: #49b1f5 !important;
   animation: header-effect 1s;
 }
 
 .main-container {
   @include page-up-animation;
+
   max-width: 1200px;
   padding: 0 20px;
   line-height: 1.5;
@@ -69,8 +71,8 @@ ul {
   justify-content: space-between;
 
   &::after {
-    content: '';
     width: 30%;
+    content: '';
   }
 }
 
@@ -80,6 +82,7 @@ ul {
 
 @media (min-width: $screen-sm) {
   $container-m: 360px auto auto;
+
   .main-container {
     margin: $container-m;
   }
@@ -87,6 +90,7 @@ ul {
 
 @media (max-width: $screen-sm) {
   $container-m: 240px auto auto;
+
   .main-container {
     margin: $container-m;
   }
@@ -94,39 +98,42 @@ ul {
 
 @keyframes header-effect {
   0% {
-    opacity: 0;
     filter: alpha(opacity=0);
+    opacity: 0;
     transform: translateY(-50px);
   }
+
   100% {
-    opacity: 1;
     filter: none;
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes main {
   0% {
-    opacity: 0;
     filter: alpha(opacity=0);
+    opacity: 0;
     transform: translateY(50px);
   }
+
   100% {
-    opacity: 1;
     filter: none;
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes title-scale {
   0% {
-    opacity: 0;
     filter: alpha(opacity=0);
+    opacity: 0;
     transform: scale(0.7);
   }
+
   100% {
-    opacity: 1;
     filter: none;
+    opacity: 1;
     transform: scale(1);
   }
 }

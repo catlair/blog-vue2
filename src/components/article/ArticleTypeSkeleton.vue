@@ -16,16 +16,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  .article-item {
-    margin: 16px 1%;
-  }
-}
-
 @media (max-width: $screen-sm) {
   .article-item {
     width: 100%;
@@ -42,6 +32,16 @@ export default {
 @media (min-width: $screen-md) {
   .article-item {
     width: 30%;
+  }
+}
+
+.article-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .article-item {
+    margin: 16px 1%;
   }
 }
 </style>

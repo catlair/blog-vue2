@@ -25,7 +25,7 @@
       </div>
     </div>
     <!-- 分割线 -->
-    <v-divider></v-divider>
+    <v-divider />
     <!-- 文章标签 -->
     <div class="tag-wrapper">
       <router-link :to="'/tags?name=' + tag" class="tag-btn" v-for="tag of article.tags" :key="tag">
@@ -64,16 +64,20 @@ export default {
     transition: all 0.3s;
     box-shadow: 0 4px 12px 12px rgba(7, 17, 27, 0.15);
   }
+
   .article-item-card:not(:hover) {
     transition: all 0.3s;
   }
+
   .article-item-card:hover .on-hover {
     transition: all 0.6s;
     transform: scale(1.1);
   }
+
   .article-item-card:not(:hover) .on-hover {
     transition: all 0.6s;
   }
+
   .article-item-info {
     line-height: 1.7;
     padding: 15px 15px 12px 18px;
@@ -86,26 +90,33 @@ export default {
     padding: 15px 15px 12px 18px;
   }
 }
+
 .article-item-card {
   border-radius: 8px !important;
   box-shadow: 0 4px 8px 6px rgba(7, 17, 27, 0.06);
 }
+
 .article-item-card a {
   transition: all 0.3s;
 }
+
 .article-item-cover {
   height: 220px;
   overflow: hidden;
 }
-.article-item-card a:hover {
-  color: #8e8cd8;
-}
+
 .tag-wrapper {
   padding: 10px 15px 10px 18px;
 }
+
 .tag-wrapper a {
   color: #fff !important;
 }
+
+.article-item-card a:hover {
+  color: #8e8cd8;
+}
+
 .tag-btn {
   display: inline-block;
   font-size: 0.725rem;

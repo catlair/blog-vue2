@@ -4,19 +4,14 @@
 
 $screen-xs: 0;
 $screen-xs-min: $screen-xs;
-
 $screen-sm: 600px;
 $screen-sm-min: $screen-sm;
-
 $screen-md: 960px;
 $screen-md-min: $screen-md;
-
 $screen-lg: 1264px;
 $screen-lg-min: $screen-lg;
-
 $screen-xl: 1904px;
 $screen-xl-min: $screen-xl;
-
 $screen-xs-max: ($screen-sm-min - 1px);
 $screen-sm-max: ($screen-md-min - 1px);
 $screen-md-max: ($screen-lg-min - 16px); // 16 与 vueify 的 media 定义相同

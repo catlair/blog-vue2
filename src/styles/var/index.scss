@@ -1,4 +1,4 @@
-@import './breakpoint.scss';
+@import './breakpoint';
 
 @mixin page-up-animation {
   animation: main 1s;
@@ -10,5 +10,5 @@
 }
 
 :root {
-  --100vh: calc(100 * var(--vh, 1vh));
+  --vh-full: calc(100 * var(--vh, 1vh));
 }

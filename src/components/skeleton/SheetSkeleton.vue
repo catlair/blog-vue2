@@ -1,6 +1,6 @@
 <template>
   <v-sheet :color="color || `grey ${$vuetify.theme.dark ? 'darken-2' : 'lighten-4'}`">
-    <v-skeleton-loader :class="skeletonClass" :type="type"></v-skeleton-loader>
+    <v-skeleton-loader :class="skeletonClass" :type="type" />
   </v-sheet>
 </template>
 

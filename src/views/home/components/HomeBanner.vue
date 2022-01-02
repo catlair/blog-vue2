@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
+  @include vh(100);
   display: flex;
   position: relative;
   flex-direction: column;
@@ -40,24 +41,27 @@ export default {
   text-align: center;
   align-items: center;
   background-color: antiquewhite;
-  @include vh(100);
   color: #1976d2;
   font-weight: bold;
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  .desc {
-    font-size: 1rem;
-  }
   @media (min-width: $screen-sm + 100px) {
     h1 {
       font-size: 2.5rem;
     }
+
     .desc {
       font-size: 1.5rem;
     }
   }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .desc {
+    font-size: 1rem;
+  }
+
   .roll-btn {
     position: absolute;
     bottom: 0px;
@@ -76,10 +80,12 @@ export default {
     top: -10%;
     opacity: 0.4;
   }
+
   50% {
     top: 20%;
     opacity: 0.8;
   }
+
   100% {
     top: -10%;
     opacity: 0.4;

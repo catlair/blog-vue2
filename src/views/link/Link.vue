@@ -1,9 +1,9 @@
 <template>
   <Container title="友情链接">
-    <LinkSkeleton v-if="loading"></LinkSkeleton>
+    <LinkSkeleton v-if="loading" />
     <template v-else>
-      <LinkLists></LinkLists>
-      <v-pagination v-model="page" :length="6"></v-pagination>
+      <LinkLists />
+      <v-pagination v-model="page" :length="6" />
     </template>
     <!-- 说明 -->
     <div class="link-title mt-4 mb-4">

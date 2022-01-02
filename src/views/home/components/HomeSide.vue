@@ -127,6 +127,7 @@ export default {
   .art-warp {
     display: flex;
     padding: 0.875rem 0;
+
     .art-item {
       flex: 1;
     }
@@ -174,9 +175,11 @@ export default {
 
   .side-info {
     text-align: initial;
+
     p {
       margin: 0;
     }
+
     .bell-info {
       text-indent: 2em;
       font-size: 0.875rem;
@@ -186,15 +189,10 @@ export default {
       padding: 0.25rem;
       font-size: 0.875rem;
     }
+
     .ctx-item {
       padding: 4px 0 0;
     }
   }
-}
-
-@media (min-width: $screen-sm) {
-}
-
-@media (max-width: $screen-sm) {
 }
 </style>
