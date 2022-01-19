@@ -6,7 +6,7 @@
         v-for="item of categories"
         :key="item._id"
         :to="`?name=` + item.name"
-        v-slot="{ href, route, navigate, isActive, isExactActive }"
+        v-slot="{ href, navigate, isActive, isExactActive }"
         custom
       >
         <li

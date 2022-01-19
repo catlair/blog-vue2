@@ -1,13 +1,22 @@
 <template>
   <v-card class="wrap">
-    <article v-html="content">content</article>
+    <v-alert v-if="message" dense outlined type="error" style="margin-bottom: 0">
+      {{ message }}
+    </v-alert>
+    <article v-else v-html="content">content</article>
+    <Comment />
   </v-card>
 </template>
 
 <script>
+import Comment from '@/components/comment'
+
 export default {
   name: 'ArticleContent',
-  props: ['content']
+  components: {
+    Comment
+  },
+  props: ['content', 'message']
 }
 </script>
 

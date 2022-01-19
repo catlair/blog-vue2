@@ -1,6 +1,8 @@
 <template>
-  <ArticleTypeSkeleton v-if="loading" />
-  <ArticleCard v-else :dataSource="articles" />
+  <section>
+    <ArticleTypeSkeleton v-show="loading" />
+    <ArticleCard v-show="!loading" :dataSource="articles" />
+  </section>
 </template>
 
 <script>

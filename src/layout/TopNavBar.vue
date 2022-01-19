@@ -59,16 +59,15 @@
           </router-link>
         </div>
         <div class="menus-item">
-          <a
-            class="menu-btn"
-            v-if="!$store.state.userInfo.author"
-            @click="login"
-            href="javascript:void 0;"
-          >
+          <a class="menu-btn" v-if="!user.id" @click="login" href="javascript:void 0;">
             <i class="iconfont">&#xe617;</i> 登录
           </a>
           <template v-else>
-            <v-img class="user-avatar" :src="$store.state.userInfo.avatar" height="30" width="30" />
+            <v-img class="user-avatar" alt="avatar" :src="user.avatar" height="30" width="30">
+              <template v-slot:placeholder>
+                <span class="blue--text text-h5">我</span>
+              </template>
+            </v-img>
             <ul class="menus-submenu">
               <li>
                 <router-link to="/user"> <i class="iconfont">&#xe617;</i> 个人中心 </router-link>
@@ -91,10 +90,10 @@
         </router-link>
       </div>
       <div class="nav-mb">
-        <a @click="search" href="javascript:;">
+        <a @click="search" href="javascript:void 0;">
           <i class="iconfont">&#xe61e;</i>
         </a>
-        <a @click="drawer" href="javascript:;">
+        <a @click="drawer" href="javascript:void 0;">
           <i class="iconfont">&#xe609;</i>
         </a>
       </div>
@@ -103,7 +102,7 @@
 </template>
 
 <script>
-import { TOGGLE_SIDE_DRAWER } from '@/store/type'
+import { SET_APP_PROP, TOGGLE_SIDE_DRAWER, USER_MODULE } from '@/store/type'
 
 export default {
   name: 'TopNavBar',
@@ -118,12 +117,17 @@ export default {
       }
     }
   },
+  computed: {
+    user() {
+      return this.$store.state.user.info
+    }
+  },
   methods: {
-    handleScroll() {
-      this.scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      this.navClass = this.scrollTop > 60 ? 'nav-fixed' : 'nav'
-    },
+    // handleScroll() {
+    //   this.scrollTop =
+    //     window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    //   this.navClass = this.scrollTop > 60 ? 'nav-fixed' : 'nav'
+    // },
     search() {
       this.$notify({
         title: '点击了搜索框',
@@ -135,18 +139,10 @@ export default {
       this.$store.commit(TOGGLE_SIDE_DRAWER, true)
     },
     login() {
-      this.$notify({
-        title: '点击登录',
-        message: '点击登录',
-        position: 'bottom-left'
-      })
+      this.$store.commit(SET_APP_PROP, { loginDialog: true })
     },
     logout() {
-      this.$notify({
-        title: '点击退出登录',
-        message: '点击退出登录',
-        position: 'bottom-left'
-      })
+      this.$store.dispatch(USER_MODULE.LOGOUT)
     }
   },
   mounted() {

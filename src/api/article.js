@@ -31,9 +31,11 @@ export function getAllArticleApi(params) {
 
 /**
  * @description: 获取文章内容
+ * @param {string} id 文章 id
+ * @param {boolean} isTransformResponse 是否转换响应数据 默认 false
  */
-export function getArticleContextApi(id) {
-  return defHttp.get({ url: Api.URL + '/' + id })
+export function getArticleContextApi(id, isTransformResponse = false) {
+  return defHttp.get({ url: Api.URL + '/' + id }, { isTransformResponse })
 }
 
 /**

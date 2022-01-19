@@ -42,12 +42,18 @@ const routes = [
   {
     path: '/categories',
     name: 'Category',
-    component: () => import(/* webpackChunkName: "categories" */ '../views/category/Category.vue')
+    component: () => import(/* webpackChunkName: "categories" */ '../views/category/Category.vue'),
+    meta: {
+      keepAlive: false
+    }
   },
   {
     path: '/tags',
     name: 'Tag',
-    component: () => import(/* webpackChunkName: "tags" */ '../views/tag/Tag.vue')
+    component: () => import(/* webpackChunkName: "tags" */ '../views/tag/Tag.vue'),
+    meta: {
+      keepAlive: false
+    }
   },
   {
     path: '/user',
@@ -57,7 +63,15 @@ const routes = [
   {
     path: '/articles/:id',
     name: 'Article',
-    component: () => import(/* webpackChunkName: "article" */ '../views/article/Article.vue')
+    component: () => import(/* webpackChunkName: "article" */ '../views/article/Article.vue'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
+    name: 'Register',
+    path: '/register',
+    component: () => import(/* webpackChunkName: "register" */ '@/views/register/Register.vue')
   },
   {
     path: '*',
@@ -77,7 +91,7 @@ const router = new VueRouter({
       scrollTo = to.hash
     } else if (savedPosition) {
       // 按下 前进/后退 按钮时，记录的位置
-      scrollTo = savedPosition.y
+      return savedPosition
     }
 
     return goToPosition(scrollTo)

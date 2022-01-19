@@ -1,7 +1,8 @@
 import { merge, isString } from 'lodash-es'
 import { ContentTypeEnum, RequestEnum, ResultEnum } from '@/enums/httpEnum'
 import { VAxios } from './Axios'
-import { Message, MessageBox } from 'element-ui'
+import { Message, MessageBox } from '@/utils/notice'
+import store from '@/store'
 
 /**
  * 数据处理，方便区分多种处理方式
@@ -98,9 +99,7 @@ const transform = {
    * 请求拦截器处理
    */
   requestInterceptors: (config, options) => {
-    // const token = useUserStore().token
-    const token = 'token'
-
+    const token = store.state.user.token
     if (token && config?.requestOptions?.withToken !== false) {
       config.headers.Authorization = options.authenticationScheme
         ? `${options.authenticationScheme} ${token}`
