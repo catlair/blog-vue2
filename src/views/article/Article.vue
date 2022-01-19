@@ -3,7 +3,7 @@
     <ArticleBanner :article="article" />
     <v-row class="main-container">
       <v-col md="9" cols="12">
-        <ArticleContent :content="message" />
+        <ArticleContent :content="content" :message="message" />
       </v-col>
       <v-col md="3" cols="12" class="d-md-block d-none art-side">
         <ArticleSide />
@@ -29,6 +29,7 @@ export default {
   data() {
     return {
       article: {},
+      content: '',
       message: '',
       tocText: {
         value: ''
@@ -40,18 +41,23 @@ export default {
       tocText: this.tocText
     }
   },
-  created() {
-    this.getArticle().then((res) => {
-      console.log(res)
-      this.article = res
-    })
-    const htmlText = this.$md.render(
-      '# markdown-it rulezz!\n## with markdown-it-toc-done-right rulezz even more!"' + '\n${toc}\n'
-    )
-    const tocTextMatch = htmlText.match(/<nav.*id="markdown-toc".*<\/nav>$/)
-    const tocText = tocTextMatch ? tocTextMatch[0] : ''
-    this.message = htmlText.replace(tocText, '')
-    this.tocText.value = tocText
+  async created() {
+    try {
+      const { result, code, msg } = await this.getArticle()
+      this.article = result
+      console.log(result, code, msg)
+      if (code !== 0) {
+        this.message = msg
+        return
+      }
+      const htmlText = this.$md.render(this.article.content + '\n${toc}\n')
+      const tocTextMatch = htmlText.match(/<nav.*id="markdown-toc".*<\/nav>$/)
+      const tocText = tocTextMatch ? tocTextMatch[0] : ''
+      this.content = htmlText.replace(tocText, '')
+      this.tocText.value = tocText
+    } catch (error) {
+      console.log(error)
+    }
   },
   methods: {
     getArticle() {

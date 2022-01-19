@@ -70,13 +70,13 @@ module.exports = {
         'selector-pseudo-class-no-unknown': [
           true,
           {
-            ignorePseudoClasses: ['deep', 'global']
+            ignorePseudoClasses: ['deep', 'v-deep', 'global']
           }
         ],
         'selector-pseudo-element-no-unknown': [
           true,
           {
-            ignorePseudoElements: []
+            ignorePseudoElements: ['v-deep', 'global']
           }
         ]
       }

@@ -10,8 +10,9 @@
   >
     <!-- 博主介绍 -->
     <div class="blogger-info">
-      <v-avatar size="110">
-        <img :src="$store.state.userInfo.avatar" />
+      <v-avatar size="110" color="red">
+        <!--        <img alt="头像" :src="user.avatar" />-->
+        <span class="white--text text-h5">CJ</span>
       </v-avatar>
     </div>
     <!-- 博客信息 -->
@@ -69,15 +70,15 @@
       <div class="menu-item">
         <router-link to="/message"> <i class="iconfont">&#xe619;</i> 留言 </router-link>
       </div>
-      <div class="menu-item" v-if="!$store.state.userInfo.author">
-        <a @click="login" href="javascript:;"><i class="iconfont">&#xe617;</i> 登录 </a>
+      <div class="menu-item" v-if="!user.id">
+        <a @click="login" href="javascript:void 0;"><i class="iconfont">&#xe617;</i> 登录 </a>
       </div>
       <template v-else>
         <div class="menu-item">
           <router-link to="/user"> <i class="iconfont">&#xe617;</i> 个人中心 </router-link>
         </div>
         <div class="menu-item">
-          <a @click="logout" href="javascript:;"><i class="iconfont">&#xe624;</i> 退出</a>
+          <a @click="logout" href="javascript: void 0;"><i class="iconfont">&#xe624;</i> 退出</a>
         </div>
       </template>
     </div>
@@ -85,15 +86,10 @@
 </template>
 
 <script>
-import { SET_SIDE_DRAWER } from '@/store/type'
+import { SET_APP_PROP, SET_SIDE_DRAWER, USER_MODULE } from '@/store/type'
 
 export default {
   name: 'SideNavBar',
-  data: function () {
-    return {
-      //
-    }
-  },
   computed: {
     drawer: {
       set(value) {
@@ -101,6 +97,11 @@ export default {
       },
       get() {
         return this.$store.state.mbSideDrawer
+      }
+    },
+    user: {
+      get() {
+        return this.$store.state.user.info
       }
     }
   },
@@ -112,18 +113,10 @@ export default {
       }
     },
     login() {
-      this.$notify({
-        title: '点击登录',
-        message: '点击登录',
-        position: 'bottom-left'
-      })
+      this.$store.commit(SET_APP_PROP, { loginDialog: true })
     },
     logout() {
-      this.$notify({
-        title: '点击退出登录',
-        message: '点击退出登录',
-        position: 'bottom-left'
-      })
+      this.$store.dispatch(USER_MODULE.LOGOUT)
     }
   }
 }

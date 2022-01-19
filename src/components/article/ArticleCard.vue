@@ -1,7 +1,13 @@
 <template>
   <ul class="article-wrapper flex-between">
     <!-- 文章 -->
-    <v-lazy class="article-item" tag="li" v-for="item of dataSource" :key="item._id">
+    <v-lazy
+      v-for="item of dataSource"
+      min-height="350"
+      class="article-item"
+      tag="li"
+      :key="item._id"
+    >
       <ArticleCardItem :article="item" />
     </v-lazy>
   </ul>

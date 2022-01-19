@@ -4,7 +4,7 @@
     <v-container class="main-container">
       <v-row>
         <v-col md="9" cols="12">
-          <HomeArticleCard :articles="article.list" />
+          <HomeArticleCard :articles="article.list" :isLoadMore="isLoadMore" />
           <v-pagination
             class="pagination"
             v-model="article.curPage"
@@ -41,7 +41,8 @@ export default {
         totalPage: 1,
         list: []
       },
-      pageSize: 10
+      pageSize: 10,
+      isLoadMore: true
     }
   },
   created() {
@@ -57,16 +58,14 @@ export default {
           return
         }
         if (isScroll) {
+          this.isLoadMore = false
           goToPosition(document.documentElement.clientHeight || window.innerHeight || 0).then(
             () => {
-              // 首页进行了懒加载
-              // 确保滚动到指定位置后再加载数据
-              this.article = res
+              this.isLoadMore = true
             }
           )
-        } else {
-          this.article = res
         }
+        this.article = res
       })
     }
   }

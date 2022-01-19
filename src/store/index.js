@@ -3,7 +3,8 @@ import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import SecureLS from 'secure-ls'
 
-import { TOGGLE_SIDE_DRAWER, SET_SIDE_DRAWER } from './type'
+import { TOGGLE_SIDE_DRAWER, SET_SIDE_DRAWER, SET_APP_PROP } from './type'
+import userModule from './user'
 
 Vue.use(Vuex)
 
@@ -25,9 +26,8 @@ if (isProd) {
 export default new Vuex.Store({
   state: {
     mbSideDrawer: false,
-    userInfo: {
-      author: 'haha',
-      avatar: 'https://cn.vuejs.org/images/logo.svg'
+    app: {
+      loginDialog: false
     }
   },
   mutations: {
@@ -36,10 +36,15 @@ export default new Vuex.Store({
     },
     [SET_SIDE_DRAWER](state, payload) {
       state.mbSideDrawer = payload
+    },
+    [SET_APP_PROP](state, payload) {
+      Vue.set(state, 'app', Object.assign({}, payload))
     }
   },
   actions: {},
-  modules: {},
+  modules: {
+    user: userModule
+  },
   plugins: [createPersistedState(lsConfig)],
   strict: !isProd
 })
