@@ -143,7 +143,7 @@ export default {
       const file = e.clipboardData.files[0]
       if (file) {
         // 只处理复制图片
-        this.beforeSetImg(file)
+        // this.beforeSetImg(file)
         e.preventDefault()
       }
     },

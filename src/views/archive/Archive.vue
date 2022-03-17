@@ -10,6 +10,7 @@
 
 <script>
 import Container from '@/layout/Container.vue'
+import { defHttp } from '../../http/axios'
 
 export default {
   name: 'Archive',
@@ -18,6 +19,19 @@ export default {
   },
   data() {
     return {}
+  },
+  created() {
+    defHttp
+      .post({
+        url: '/data',
+        data: {
+          type: 'archive',
+          asda: 'adas'
+        }
+      })
+      .then((res) => {
+        console.log(res)
+      })
   }
 }
 </script>

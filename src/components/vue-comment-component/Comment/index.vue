@@ -1,11 +1,12 @@
 <template>
   <div id="comment" ref="comment">
     <!-- 顶部评论表单 -->
-    <comment-form @form-submit="formSubmit">
+    <comment-form @form-submit="formSubmit($event, 0)">
       <img
         class="avatar"
         :src="user.avatar || ''"
         @error="(e) => e.target.classList.add('error')"
+        alt="avatar"
       />
     </comment-form>
 
@@ -28,8 +29,8 @@
             v-if="forms.includes(id)"
             :id="id"
             :parent="comment"
-            :placeholder="`回复${comment.user.name}...`"
-            @form-submit="formSubmit"
+            :placeholder="`回复${comment.user.nickname}...`"
+            @form-submit="formSubmit($event, 2)"
             @form-delete="deleteForm"
           />
         </template>
@@ -55,9 +56,9 @@
                 :id="`${parentId}-${j}`"
                 :comment="child"
                 :parent="comment"
-                :placeholder="`回复${child.user && child.user.name}...`"
+                :placeholder="`回复${child.user && child.user.nickname}...`"
                 @form-delete="deleteForm"
-                @form-submit="formSubmit"
+                @form-submit="formSubmit($event, 3)"
               />
             </comment-item>
           </comment-list>
@@ -145,8 +146,8 @@ export default {
         reply: null,
         createAt: null,
         user: {
-          id: '123',
-          name: '123',
+          id: '',
+          nickname: '',
           avatar: ''
         }
       }
@@ -170,7 +171,6 @@ export default {
       const map = {
         user: {
           validate: function (v) {
-            console.log(v)
             return (typeof v !== 'object' || JSON.stringify(v) === '{}') && this.message
           },
           message: 'User must be an object with props.'
@@ -251,7 +251,7 @@ export default {
       index > -1 && this.forms.splice(index, 1)
     },
     // * 评论或回复
-    async formSubmit({ newComment: { id, callback, ...params }, parent = null }) {
+    async formSubmit({ newComment: { id, callback, ...params }, parent = null }, commentType = 0) {
       const _params = Object.assign(params, { user: this.user })
 
       // 等待外部提交事件执行
@@ -264,6 +264,7 @@ export default {
             callback()
           }
 
+          data.type = commentType
           await this.beforeSubmit(data, parent, add)
         } catch (e) {
           console.error(e)

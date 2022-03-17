@@ -8,7 +8,7 @@ export interface ListModel {
 }
 
 // 分页参数
-export interface PaginationParms {
+export interface PaginationParams {
   pn?: number
   ps?: number
   sort?: string

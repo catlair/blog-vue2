@@ -6,6 +6,7 @@
         class="avatar"
         :src="comment.user.avatar || ''"
         @error="(e) => e.target.classList.add('error')"
+        alt="avatar"
       />
       <div class="content-box">
         <!-- 评论或回复人具体信息 -->
@@ -13,7 +14,7 @@
           <slot name="userMeta">
             <div class="user-popover-box">
               <span v-if="comment.user">{{
-                comment.user.name + (comment.user.author === true ? '（作者）' : '')
+                comment.user.nickname + (comment.user.author === true ? '（作者）' : '')
               }}</span>
             </div>
           </slot>
@@ -24,7 +25,7 @@
           <span v-if="comment.reply" class="reply"
             >回复
             <span class="reply-target" :title="comment.reply.email">{{
-              comment.reply.name + '：'
+              comment.reply.nickname + '：'
             }}</span>
           </span>
           {{ comment.content }}

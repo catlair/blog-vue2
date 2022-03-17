@@ -5,7 +5,7 @@
       <v-col md="9" cols="12">
         <ArticleContent :content="content" :message="message" />
       </v-col>
-      <v-col md="3" cols="12" class="d-md-block d-none art-side">
+      <v-col md="3" cols="12" class="d-md-block d-none art-wrap">
         <ArticleSide />
       </v-col>
     </v-row>
