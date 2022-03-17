@@ -3,7 +3,7 @@
     <v-alert v-if="message" dense outlined type="error" style="margin-bottom: 0">
       {{ message }}
     </v-alert>
-    <article v-else v-html="content">content</article>
+    <article v-else v-html="content"></article>
     <Comment />
   </v-card>
 </template>

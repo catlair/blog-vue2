@@ -1,7 +1,7 @@
 <template>
   <div id="comment" ref="comment">
     <!-- 顶部评论表单 -->
-    <comment-form @form-submit="formSubmit($event, 0)">
+    <comment-form @form-submit="formSubmit($event, Types.COMMENT)">
       <img
         class="avatar"
         :src="user.avatar || ''"
@@ -30,7 +30,7 @@
             :id="id"
             :parent="comment"
             :placeholder="`回复${comment.user.nickname}...`"
-            @form-submit="formSubmit($event, 2)"
+            @form-submit="formSubmit($event, Types.REPLY)"
             @form-delete="deleteForm"
           />
         </template>
@@ -58,7 +58,7 @@
                 :parent="comment"
                 :placeholder="`回复${child.user && child.user.nickname}...`"
                 @form-delete="deleteForm"
-                @form-submit="formSubmit($event, 3)"
+                @form-submit="formSubmit($event, Types.REPLY_REPLY, child)"
               />
             </comment-item>
           </comment-list>
@@ -72,6 +72,8 @@
 import CommentForm from './components/CommentForm'
 import CommentList from './components/CommentList'
 import CommentItem from './components/CommentItem'
+import { CommentsTypeEnum } from '@/enums/commentEnum'
+
 export default {
   name: 'JuejinComment',
   components: { CommentList, CommentItem, CommentForm },
@@ -112,7 +114,8 @@ export default {
   data() {
     return {
       forms: [], // 显示在视图上的表单id数组
-      cacheData: []
+      cacheData: [],
+      Types: CommentsTypeEnum
     }
   },
   computed: {
@@ -251,7 +254,11 @@ export default {
       index > -1 && this.forms.splice(index, 1)
     },
     // * 评论或回复
-    async formSubmit({ newComment: { id, callback, ...params }, parent = null }, commentType = 0) {
+    async formSubmit(
+      { newComment: { id, callback, ...params }, parent = null },
+      commentType = CommentsTypeEnum.COMMENT,
+      reply = {}
+    ) {
       const _params = Object.assign(params, { user: this.user })
 
       // 等待外部提交事件执行
@@ -260,12 +267,21 @@ export default {
           const data = this.transformToOriginObj(_params)
 
           const add = (data) => {
+            // TODO: 添加评论
+            console.log(data)
             this.addComment(id, this.comparePropsAndValues(data))
             callback()
           }
 
           data.type = commentType
-          await this.beforeSubmit(data, parent, add)
+          await this.beforeSubmit(
+            {
+              ...data,
+              reply
+            },
+            parent,
+            add
+          )
         } catch (e) {
           console.error(e)
         }

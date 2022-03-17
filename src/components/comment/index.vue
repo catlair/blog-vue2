@@ -21,9 +21,9 @@ export default {
     return {
       data: [],
       props: {
-        id: '_id',
+        id: 'id',
         content: 'content',
-        children: 'children',
+        children: 'replies',
         reply: 'reply',
         createAt: 'createdAt'
       },
@@ -45,11 +45,10 @@ export default {
         pid: parent ? parent.id : null,
         type: newComment.type,
         aid: this.$route.params.id,
-        rid: newComment.reply ? newComment.reply._id : null
+        rid: newComment.reply ? newComment.reply.id : null
       })
-      console.log(parent)
       // const res = { newComment, parent, _id: new Date().getTime() }
-      add(Object.assign(newComment, { _id: res._id }))
+      add(Object.assign({ newComment, ...res }, { id: res.id }))
     },
     async deleteComment(comment, parent) {
       const res = await new Promise((resolve) => {

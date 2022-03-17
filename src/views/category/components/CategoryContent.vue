@@ -57,7 +57,7 @@ export default {
         name = name[0]
       }
       getCategoryArticlesByName(name).then((res) => {
-        this.articles = res.list
+        this.articles = res
         this.loading = false
       })
     }

@@ -2,14 +2,14 @@
   <v-card class="home-art-card">
     <!-- 图片  -->
     <div class="art-cover">
-      <router-link :to="`/articles/${article._id}`">
+      <router-link :to="`/articles/${article.id}`">
         <LazyImg src="https://s4.ax1x.com/2021/12/27/Trng1I.png" />
       </router-link>
     </div>
     <!-- 详细信息 -->
     <div class="ctx-wrap">
       <div class="art-title">
-        <router-link :to="`/articles/${article._id}`">
+        <router-link :to="`/articles/${article.id}`">
           {{ article.title }}
         </router-link>
       </div>
@@ -26,7 +26,7 @@
         <!-- 文章分类 -->
         <router-link :to="'/categories/'">
           <v-icon size="14">{{ mdiInboxFull }}</v-icon>
-          <span style="margin-left: 2px">{{ article.category }}</span>
+          <span style="margin-left: 2px">{{ article.category.name }}</span>
         </router-link>
         <span class="separator">|</span>
         <!-- 文章标签 -->
@@ -35,10 +35,10 @@
           :to="'/tags/'"
           class="mr-1"
           v-for="tag of article.tags"
-          :key="tag"
+          :key="tag.name"
         >
           <v-icon size="14">{{ mdiTagMultiple }}</v-icon>
-          <span style="margin-left: 2px">{{ tag }}</span>
+          <span style="margin-left: 2px">{{ tag.name }}</span>
         </router-link>
       </div>
       <div class="art-desc">

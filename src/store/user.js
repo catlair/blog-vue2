@@ -11,8 +11,6 @@ export default {
   }),
   mutations: {
     setUser(state, user) {
-      user.id = user._id
-      delete user._id
       state.info = user
     },
     setToken(state, user) {
@@ -39,7 +37,6 @@ export default {
       }
     },
     async afterLogin({ commit }) {
-      console.log(2)
       const user = await getUserApi()
       if (!user) {
         Message.error('登录失败')

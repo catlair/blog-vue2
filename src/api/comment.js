@@ -9,7 +9,7 @@ const API = {
  */
 export function getCommentList(id, params) {
   return defHttp.get({
-    url: API.comment + '/' + id,
+    url: API.comment + '/article/' + id,
     params
   })
 }

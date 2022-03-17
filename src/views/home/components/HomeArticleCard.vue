@@ -1,6 +1,6 @@
 <template>
   <ul class="home-article-wrap">
-    <li v-for="article of preload" :key="article._id">
+    <li v-for="article of preload" :key="article.id">
       <HomeArticleCardItem :article="article" />
     </li>
     <template v-if="!isLoadMore">
@@ -13,7 +13,7 @@
       }"
       tag="li"
       min-height="280"
-      :key="article._id"
+      :key="article.id"
     >
       <HomeArticleCardItem :article="article" />
     </v-lazy>

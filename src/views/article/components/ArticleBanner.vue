@@ -24,7 +24,7 @@
           <span class="article-category">
             <i class="iconfont">&#xe609;</i>
             <router-link :to="'/categories/'">
-              {{ article.category }}
+              {{ (article.category && article.category.name) || '空' }}
             </router-link>
           </span>
         </div>
@@ -89,10 +89,12 @@ export default {
     background-color: rgba(0, 0, 0, 0.5);
   }
 }
+
 .article-info {
   font-size: 14px;
   line-height: 1.9;
   display: inline-block;
+
   i {
     font-size: 14px;
   }
@@ -100,9 +102,11 @@ export default {
 @media (min-width: $screen-sm) {
   .banner {
     height: 400px;
+
     .article-info span {
       font-size: 95%;
     }
+
     .article-info-container {
       position: absolute;
       bottom: 6.25rem;
@@ -110,10 +114,12 @@ export default {
       width: 100%;
       text-align: center;
     }
+
     .second-line,
     .third-line {
       display: inline;
     }
+
     .article-title {
       font-size: 35px;
       margin: 20px 0 8px;
@@ -123,12 +129,15 @@ export default {
 @media (max-width: $screen-sm) {
   .banner {
     height: 360px;
+
     .article-info span {
       font-size: 90%;
     }
+
     .separator:first-child {
       display: none;
     }
+
     .article-info-container {
       position: absolute;
       bottom: 1.3rem;
@@ -137,6 +146,7 @@ export default {
       color: #eee;
       text-align: left;
     }
+
     .article-title {
       font-size: 1.5rem;
       margin-bottom: 0.4rem;

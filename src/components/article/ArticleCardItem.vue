@@ -1,7 +1,7 @@
 <template>
   <v-card class="animated zoomIn article-item-card">
     <div class="article-item-cover">
-      <router-link :to="'/articles/' + article._id">
+      <router-link :to="'/articles/' + article.id">
         <!-- 缩略图 -->
         <SkeletonImg class="on-hover" width="100%" height="100%" :src="articleCover" />
       </router-link>
@@ -9,7 +9,7 @@
     <div class="article-item-info">
       <!-- 文章标题 -->
       <div>
-        <router-link :to="'/articles/' + article._id">
+        <router-link :to="'/articles/' + article.id">
           {{ article.title }}
         </router-link>
       </div>
@@ -18,9 +18,9 @@
         <v-icon size="20">{{ mdiClockOutline }}</v-icon>
         {{ formatTime(article.createdAt) }}
         <!-- 文章分类 -->
-        <router-link :to="'/categories?name=' + article.category" class="float-right">
+        <router-link :to="'/categories?name=' + article.category.name" class="float-right">
           <v-icon>{{ mdiBookMarker }}</v-icon>
-          {{ article.category }}
+          {{ article.category.name }}
         </router-link>
       </div>
     </div>
@@ -28,8 +28,13 @@
     <v-divider />
     <!-- 文章标签 -->
     <div class="tag-wrapper">
-      <router-link :to="'/tags?name=' + tag" class="tag-btn" v-for="tag of article.tags" :key="tag">
-        {{ tag }}
+      <router-link
+        :to="'/tags?name=' + tag.name"
+        class="tag-btn"
+        v-for="tag of article.tags"
+        :key="tag.name"
+      >
+        {{ tag.name }}
       </router-link>
     </div>
   </v-card>

@@ -55,7 +55,7 @@ export default {
         name = name[0]
       }
       getArticlesByTagName(name).then((res) => {
-        this.articles = res.list
+        this.articles = res
         this.loading = false
       })
     }

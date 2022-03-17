@@ -6,7 +6,7 @@
       min-height="350"
       class="article-item"
       tag="li"
-      :key="item._id"
+      :key="item.id"
     >
       <ArticleCardItem :article="item" />
     </v-lazy>

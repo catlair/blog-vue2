@@ -4,7 +4,7 @@
     <template v-else>
       <router-link
         v-for="item of categories"
-        :key="item._id"
+        :key="item.id"
         :to="`?name=` + item.name"
         v-slot="{ href, navigate, isActive, isExactActive }"
         custom

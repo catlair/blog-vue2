@@ -2,7 +2,7 @@
   <ul :class="loading ? '' : 'tag-wrapper'">
     <SheetSkeleton v-if="loading" class="list-item" type="list-item-two-line" />
     <template v-else>
-      <li class="tag-item" v-for="tag of tags" :key="tag._id">
+      <li class="tag-item" v-for="tag of tags" :key="tag.id">
         <v-card>
           <router-link :to="`?name=` + tag.name" :class="getRandomColorCls($vuetify.theme.dark)">
             {{ tag.name }}
@@ -35,6 +35,7 @@ export default {
     getTags().then((res) => {
       if (res) {
         this.tags = res
+        console.log(res)
         const name = res[0].name
         this.$route.query.name === name ? void 0 : this.$router.replace({ query: { name } })
         this.loading = false
